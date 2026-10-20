@@ -3,7 +3,252 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device
+  <meta name="viewport" content="from pathlib import Path
+
+html = r'''<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#123b63">
+<title>EduFacile Business — Apprendre et pratiquer</title>
+<style>
+:root{--navy:#123b63;--blue:#1769aa;--gold:#f3b544;--bg:#f3f6fa;--card:#fff;--text:#172536;--muted:#5b6b7d;--green:#16794b;--line:#dce4ed}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{background:linear-gradient(135deg,#123b63,#1769aa);color:#fff;padding:24px 16px 20px}header .wrap,main,.navwrap{max-width:1050px;margin:auto}h1{margin:0;font-size:1.8rem;line-height:1.2}header p{margin:8px 0 0;color:#e3eef9}.tag{display:inline-block;background:#ffffff20;border:1px solid #ffffff50;padding:4px 10px;border-radius:30px;font-size:.82rem;margin-top:12px}
+nav{background:#fff;position:sticky;top:0;z-index:10;border-bottom:1px solid var(--line);box-shadow:0 2px 8px #132b4310}.navwrap{display:flex;gap:7px;overflow:auto;padding:9px 12px}.navbtn{white-space:nowrap;border:0;border-radius:10px;padding:10px 13px;background:#edf3f9;color:var(--navy);font-weight:700;cursor:pointer}.navbtn.active{background:var(--navy);color:#fff}
+main{padding:18px 13px 40px}.panel{display:none}.panel.active{display:block}.hero,.card,.lesson,.quizbox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px;box-shadow:0 3px 12px #19365408}.hero{background:linear-gradient(135deg,#fff,#eaf3fc)}h2{color:var(--navy);margin:0 0 10px;font-size:1.45rem}h3{color:var(--navy);margin:16px 0 6px;font-size:1.12rem}p{margin:7px 0}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.tile{border:1px solid var(--line);border-radius:14px;padding:15px;background:#fff}.tile strong{display:block;color:var(--navy);font-size:1.05rem}.tile button,.primary,.secondary{border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer;margin-top:8px}.tile button,.primary{background:var(--blue);color:#fff}.secondary{background:#e8eff7;color:var(--navy)}.lesson{padding:0;overflow:hidden}.lesson summary{padding:16px;cursor:pointer;font-weight:750;color:var(--navy);background:#f8fbff}.lesson .body{padding:16px}.definition{border-left:4px solid var(--gold);background:#fff8e8;padding:12px 14px;border-radius:8px;margin:10px 0}.example{border-left:4px solid var(--green);background:#eef9f2;padding:12px 14px;border-radius:8px;margin:10px 0}.formula{background:#edf3f9;padding:10px;border-radius:8px;font-weight:700;overflow-wrap:anywhere}.pill{display:inline-block;background:#e6effa;color:#174b78;border-radius:30px;padding:3px 9px;font-size:.8rem;font-weight:700}.progress{height:10px;background:#e3eaf2;border-radius:20px;overflow:hidden;margin:8px 0}.progress span{display:block;height:100%;background:#219563;width:0;transition:width .2s}.question{padding:13px;border:1px solid var(--line);border-radius:12px;margin:12px 0;background:#fff}.question label{display:block;padding:6px 0;cursor:pointer}.feedback{font-weight:700;margin-top:7px}.good{color:#16794b}.bad{color:#b42318}input[type=text],input[type=number],textarea,select{width:100%;padding:11px;border:1px solid #bdcad8;border-radius:9px;font:inherit;background:#fff}table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}th,td{border:1px solid var(--line);padding:9px;text-align:left}th{background:#edf3f9;color:var(--navy)}.tablewrap{overflow:auto}.small{font-size:.9rem}footer{text-align:center;padding:22px;color:var(--muted)}.search{margin:8px 0 14px}.hidden{display:none!important}
+@media(min-width:700px){header{padding:30px 22px}main{padding:24px 18px}.hero,.card{padding:22px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>EduFacile Business</h1>
+<p>Comprendre, pratiquer et progresser en gestion, comptabilité SYSCOHADA et entrepreneuriat.</p>
+<span class="tag">Cours progressifs • Exemples en GNF • Exercices corrigés • Quiz</span>
+</div></header>
+<nav><div class="navwrap">
+<button class="navbtn active" data-tab="accueil">Accueil</button>
+<button class="navbtn" data-tab="gestion">Gestion</button>
+<button class="navbtn" data-tab="compta">SYSCOHADA</button>
+<button class="navbtn" data-tab="entreprise">Entrepreneuriat</button>
+<button class="navbtn" data-tab="exercices">Exercices</button>
+<button class="navbtn" data-tab="quiz">Quiz</button>
+<button class="navbtn" data-tab="glossaire">Glossaire</button>
+</div></nav>
+<main>
+<section id="accueil" class="panel active">
+<div class="hero">
+<span class="pill">Bienvenue</span><h2>Apprendre à son rythme</h2>
+<p>Cette application est conçue pour apprendre sans devoir regarder une vidéo. Lis le cours, note les mots importants, refais les exemples sans regarder la correction, puis teste-toi.</p>
+<p><strong>Conseil :</strong> travaille un chapitre à la fois. Comprendre une notion et savoir l'appliquer vaut mieux que mémoriser dix définitions sans les comprendre.</p>
+<h3>Ta progression</h3><div class="progress"><span id="progressBar"></span></div><p id="progressText" class="muted">0 chapitre(s) terminé(s).</p>
+<button class="primary" onclick="showTab('gestion')">Commencer le cours</button>
+</div>
+<div class="grid">
+<div class="tile"><strong>📘 Gestion</strong><p>Comprendre comment une organisation utilise ses ressources pour atteindre ses objectifs.</p><button onclick="showTab('gestion')">Ouvrir les cours</button></div>
+<div class="tile"><strong>🧾 Comptabilité SYSCOHADA</strong><p>Lire les opérations d'une entreprise, les enregistrer et comprendre ses états financiers.</p><button onclick="showTab('compta')">Ouvrir les cours</button></div>
+<div class="tile"><strong>🚀 Entrepreneuriat</strong><p>Passer d'une idée à une activité utile, viable et organisée.</p><button onclick="showTab('entreprise')">Ouvrir les cours</button></div>
+<div class="tile"><strong>🧠 Exercices et quiz</strong><p>Vérifier ta compréhension et apprendre de tes erreurs.</p><button onclick="showTab('quiz')">Me tester</button></div>
+</div>
+<div class="card"><h3>Méthode de travail en 5 étapes</h3><ol><li>Lis les objectifs du chapitre.</li><li>Étudie les définitions et explique-les avec tes propres mots.</li><li>Refais l'exemple sur une feuille.</li><li>Réponds aux questions avant d'afficher la correction.</li><li>Reviens le lendemain sur les notions difficiles.</li></ol></div>
+</section>
+
+<section id="gestion" class="panel">
+<div class="hero"><span class="pill">Module 1</span><h2>Gestion des organisations</h2><p>Objectif général : comprendre ce qu'est une organisation, comment elle fixe ses objectifs, mobilise ses ressources et contrôle ses résultats.</p></div>
+<details class="lesson" open><summary>Chapitre 1 — Définition et rôle de la gestion</summary><div class="body">
+<h3>1.1 Qu'est-ce que la gestion ?</h3><div class="definition"><strong>Définition :</strong> la gestion est l'ensemble des décisions et des actions qui permettent de planifier, organiser, diriger et contrôler des ressources afin d'atteindre des objectifs.</div>
+<p>Une ressource est un moyen utilisé pour réaliser une activité. Les ressources peuvent être humaines (personnes et compétences), financières (argent), matérielles (locaux, machines, ordinateurs), informationnelles (données, rapports) ou temporelles (temps disponible).</p>
+<h3>1.2 Pourquoi gérer ?</h3><p>Sans gestion, une entreprise peut acheter trop de marchandises, manquer de trésorerie, mal répartir le travail ou ignorer les besoins de ses clients. La gestion aide à utiliser les moyens disponibles avec cohérence.</p>
+<div class="example"><strong>Exemple en Guinée :</strong> Aïssatou vend des jus. Elle dispose de 500 000 GNF. Elle doit décider combien dépenser en fruits, bouteilles, transport et communication. Si elle dépense tout en fruits sans garder d'argent pour les bouteilles et le transport, elle risque de ne pas pouvoir vendre. Gérer, c'est prévoir l'ensemble des besoins avant d'agir.</div>
+<h3>1.3 Gestion, administration et management</h3><p>Les mots se recoupent, mais leur sens varie selon les contextes. La gestion insiste souvent sur l'utilisation et le suivi des ressources. L'administration porte notamment sur l'organisation des procédures et des dossiers. Le management met fortement l'accent sur la coordination, la décision, le leadership et la mobilisation des personnes.</p>
+<h3>À retenir</h3><ul><li>La gestion vise des objectifs précis.</li><li>Elle concerne les entreprises, associations, administrations et projets personnels.</li><li>Une bonne décision tient compte des moyens, des risques et des résultats attendus.</li></ul>
+<button class="secondary" onclick="markDone('g1')">Marquer le chapitre comme terminé ✓</button>
+</div></details>
+<details class="lesson"><summary>Chapitre 2 — Les quatre fonctions de la gestion</summary><div class="body">
+<h3>2.1 Planifier</h3><p>Planifier consiste à fixer un objectif, choisir les actions, prévoir les moyens et déterminer un calendrier. Un objectif utile est clair, mesurable, réaliste et limité dans le temps.</p>
+<div class="example">Objectif vague : « vendre davantage ». Objectif précis : « vendre 100 bouteilles de jus par semaine pendant le mois de novembre, tout en conservant une marge positive ».</div>
+<h3>2.2 Organiser</h3><p>Organiser, c'est répartir les tâches, les responsabilités et les ressources. Qui achète les matières premières ? Qui produit ? Qui vend ? Qui enregistre les recettes ? Une responsabilité claire évite les oublis et les conflits.</p>
+<h3>2.3 Diriger</h3><p>Diriger signifie communiquer les objectifs, motiver, guider, résoudre les problèmes et prendre des décisions. Un responsable efficace écoute son équipe et explique les attentes au lieu de donner uniquement des ordres.</p>
+<h3>2.4 Contrôler</h3><p>Contrôler consiste à comparer les résultats réels aux objectifs, comprendre les écarts et corriger ce qui ne fonctionne pas. Le contrôle n'est pas seulement une punition : c'est un outil d'amélioration.</p>
+<div class="tablewrap"><table><tr><th>Fonction</th><th>Question clé</th><th>Exemple</th></tr><tr><td>Planifier</td><td>Que veut-on atteindre ?</td><td>Fixer la cible de ventes</td></tr><tr><td>Organiser</td><td>Qui fait quoi, avec quels moyens ?</td><td>Répartir achats, production et vente</td></tr><tr><td>Diriger</td><td>Comment faire agir l'équipe ?</td><td>Expliquer, accompagner, motiver</td></tr><tr><td>Contrôler</td><td>Les résultats correspondent-ils au plan ?</td><td>Comparer ventes réelles et prévues</td></tr></table></div>
+<button class="secondary" onclick="markDone('g2')">Marquer le chapitre comme terminé ✓</button>
+</div></details>
+<details class="lesson"><summary>Chapitre 3 — L'entreprise et son environnement</summary><div class="body">
+<p>Une entreprise est une organisation qui combine des ressources pour produire ou vendre des biens et/ou des services. Elle peut être petite, moyenne ou grande, individuelle ou constituée en société selon le cadre juridique choisi.</p>
+<h3>Les parties prenantes</h3><p>Ce sont les personnes ou groupes concernés par l'activité : clients, salariés, propriétaires, fournisseurs, banques, État, communauté et partenaires. Leurs intérêts peuvent être différents. Les clients veulent de la qualité à un prix acceptable ; les salariés recherchent notamment un salaire et de bonnes conditions ; les propriétaires attendent la pérennité et un rendement.</p>
+<h3>Environnement interne et externe</h3><ul><li><strong>Interne :</strong> personnel, compétences, organisation, trésorerie, matériel et culture de l'entreprise.</li><li><strong>Externe :</strong> clients, concurrents, réglementation, technologie, situation économique, fournisseurs et habitudes sociales.</li></ul>
+<div class="example"><strong>Étude de cas :</strong> une boutique vend moins parce qu'un concurrent propose une livraison rapide. La réponse ne consiste pas forcément à baisser les prix. Elle peut améliorer l'accueil, proposer une commande par téléphone, mieux présenter les produits ou organiser la livraison.</div>
+<button class="secondary" onclick="markDone('g3')">Marquer le chapitre comme terminé ✓</button>
+</div></details>
+<details class="lesson"><summary>Chapitre 4 — Les ressources et la performance</summary><div class="body">
+<p>Les ressources humaines correspondent aux personnes et à leurs compétences. Les ressources financières permettent de payer les dépenses et financer les investissements. Les ressources matérielles comprennent les équipements et les locaux. Les ressources informationnelles regroupent les données utiles à la décision.</p>
+<h3>Efficacité et efficience</h3><div class="definition"><strong>Efficacité :</strong> atteindre l'objectif. <strong>Efficience :</strong> atteindre le résultat en utilisant raisonnablement les ressources.</div>
+<div class="example">Deux vendeurs réalisent chacun 1 000 000 GNF de ventes. Le premier dépense 100 000 GNF en transport et communication ; le second 250 000 GNF. Si les autres conditions sont comparables, le premier a utilisé moins de moyens pour obtenir le même chiffre d'affaires. Attention : le chiffre d'affaires seul ne suffit pas à mesurer le bénéfice.</div>
+<h3>Quelques indicateurs</h3><ul><li>Chiffre d'affaires : total des ventes sur une période.</li><li>Coûts : ressources consommées pour l'activité.</li><li>Résultat : différence entre produits et charges selon les règles comptables.</li><li>Satisfaction client : mesure de l'expérience et de la réponse aux besoins.</li><li>Trésorerie : argent disponible pour les paiements immédiats.</li></ul>
+<button class="secondary" onclick="markDone('g4')">Marquer le chapitre comme terminé ✓</button>
+</div></details>
+<details class="lesson"><summary>Chapitre 5 — Initiation à la gestion financière</summary><div class="body">
+<p>La gestion financière consiste à prévoir les entrées et sorties d'argent, vérifier la capacité à payer les dépenses, décider des investissements et suivre les résultats.</p>
+<h3>Chiffre d'affaires, coût, marge et bénéfice</h3><div class="formula">Chiffre d'affaires = prix de vente × quantité vendue</div><div class="formula">Marge brute simplifiée = chiffre d'affaires − coût d'achat des marchandises vendues</div><div class="formula">Résultat simplifié = produits − charges</div>
+<div class="example">Une commerçante vend 40 sacs à 80 000 GNF : chiffre d'affaires = 40 × 80 000 = 3 200 000 GNF. Si le coût d'achat des sacs vendus est de 2 400 000 GNF, la marge brute simplifiée est de 800 000 GNF. Ce montant n'est pas forcément le bénéfice final : il faut encore tenir compte des autres charges, taxes éventuelles et règles applicables.</div>
+<h3>Budget et trésorerie</h3><p>Un budget est une prévision. La trésorerie est l'argent effectivement disponible à un moment donné. Une activité peut être rentable sur le papier et manquer d'argent si ses clients paient tard alors que ses fournisseurs doivent être payés immédiatement.</p>
+<button class="secondary" onclick="markDone('g5')">Marquer le chapitre comme terminé ✓</button>
+</div></details>
+</section>
+
+<section id="compta" class="panel">
+<div class="hero"><span class="pill">Module 2</span><h2>Comptabilité générale — référentiel SYSCOHADA</h2><p>La comptabilité enregistre les opérations de l'entité de manière organisée pour produire une information financière. Les numéros et traitements précis doivent être vérifiés dans le plan comptable et les textes OHADA à jour applicables à l'entité.</p></div>
+<details class="lesson" open><summary>Chapitre 1 — À quoi sert la comptabilité ?</summary><div class="body">
+<div class="definition"><strong>Comptabilité :</strong> système d'enregistrement, de classement et de synthèse des opérations financières d'une entité.</div>
+<p>Elle permet de connaître ce que l'entreprise possède, ce qu'elle doit, ce qu'elle a vendu, les charges supportées et le résultat d'une période. Elle sert à la direction, aux propriétaires, aux prêteurs, aux partenaires et aux autorités concernées.</p>
+<h3>Les notions essentielles</h3><ul><li><strong>Actif :</strong> ressource contrôlée par l'entité et porteuse d'avantages économiques attendus, selon les critères comptables applicables.</li><li><strong>Passif :</strong> obligations et ressources de financement présentées selon les règles comptables.</li><li><strong>Capitaux propres :</strong> intérêts résiduels des propriétaires après déduction des passifs des actifs.</li><li><strong>Charge :</strong> élément qui contribue à diminuer le résultat de la période.</li><li><strong>Produit :</strong> élément qui contribue à augmenter le résultat de la période.</li></ul>
+<h3>L'équilibre fondamental du bilan</h3><div class="formula">Actif = Capitaux propres + Passifs</div>
+<div class="example">Une entreprise dispose de 5 000 000 GNF en banque et de marchandises évaluées à 2 000 000 GNF. Ses actifs totalisent 7 000 000 GNF. Si elle doit 2 000 000 GNF à un fournisseur, les capitaux propres sont de 5 000 000 GNF dans cet exemple simplifié.</div>
+<button class="secondary" onclick="markDone('c1')">Marquer le chapitre comme terminé ✓</button>
+</div></details>
+<details class="lesson"><summary>Chapitre 2 — Débit et crédit : comprendre le mécanisme</summary><div class="body">
+<p>Chaque écriture comptable respecte le principe de la partie double : une opération est enregistrée dans au moins deux comptes et le total des débits doit égaler le total des crédits. Débit et crédit sont des côtés de compte, pas des synonymes universels de « mauvais » et « bon ».</p>
+<div class="tablewrap"><table><tr><th>Type de compte</th><th>Augmentation généralement enregistrée</th><th>Diminution généralement enregistrée</th></tr><tr><td>Actif</td><td>Débit</td><td>Crédit</td></tr><tr><td>Charges</td><td>Débit</td><td>Crédit</td></tr><tr><td>Passif</td><td>Crédit</td><td>Débit</td></tr><tr><td>Capitaux propres</td><td>Crédit</td><td>Débit</td></tr><tr><td>Produits</td><td>Crédit</td><td>Débit</td></tr></table></div>
+<div class="example"><strong>Exemple pédagogique :</strong> l'entreprise dépose 300 000 GNF de ses espèces sur son compte bancaire. Le compte banque augmente : débit 300 000 GNF. La caisse diminue : crédit 300 000 GNF. Total débit = total crédit. Le numéro exact des comptes dépend du plan de comptes applicable et doit être contrôlé dans le référentiel officiel.</div>
+<h3>La méthode en 4 questions</h3><ol><li>Quelle opération a eu lieu ?</li><li>Quels comptes sont concernés ?</li><li>Chaque compte augmente-t-il ou diminue-t-il ?</li><li>Quel montant au débit et au crédit pour équilibrer l'écriture ?</li></ol>
+<button class="secondary" onclick="markDone('c2')">Marquer le chapitre comme terminé ✓</button>
+</div></details>
+<details class="lesson"><summary>Chapitre 3 — Les pièces justificatives et le journal</summary><div class="body">
+<p>Une écriture doit s'appuyer sur une pièce justificative adaptée : facture, reçu, relevé bancaire, pièce de caisse, contrat ou autre document probant. La pièce doit permettre de comprendre la nature, la date, le montant et les parties concernées.</p>
+<p>Le journal enregistre les opérations dans l'ordre chronologique. Une écriture présente notamment la date, les comptes débités et crédités, les montants et le libellé qui explique l'opération.</p>
+<div class="tablewrap"><table><tr><th>Date</th><th>Compte / libellé</th><th>Débit (GNF)</th><th>Crédit (GNF)</th></tr><tr><td>05/01</td><td>Banque — apport du propriétaire (exemple pédagogique)</td><td>2 000 000</td><td></td></tr><tr><td>05/01</td><td>Capital / apport correspondant</td><td></td><td>2 000 000</td></tr><tr><td></td><th>Total</th><th>2 000 000</th><th>2 000 000</th></tr></table></div>
+<p class="small muted">Présentation simplifiée à but pédagogique. Avant de produire des comptes réels, vérifier les comptes, intitulés, règles de présentation et exigences légales applicables.</p>
+<button class="secondary" onclick="markDone('c3')">Marquer le chapitre comme terminé ✓</button>
+</div></details>
+<details class="lesson"><summary>Chapitre 4 — Le grand livre, la balance et les états financiers</summary><div class="body">
+<ul><li><strong>Grand livre :</strong> regroupe les mouvements par compte pour suivre son évolution.</li><li><strong>Balance :</strong> récapitule les soldes et mouvements des comptes. L'égalité des totaux débit/crédit aide à détecter certaines erreurs, mais ne garantit pas que toutes les opérations sont correctes.</li><li><strong>Bilan :</strong> présente la situation patrimoniale à une date donnée.</li><li><strong>Compte de résultat :</strong> présente les produits et charges d'une période et permet de déterminer le résultat selon les règles applicables.</li><li><strong>Tableau des flux de trésorerie :</strong> informe sur les flux de trésorerie entrants et sortants selon le référentiel concerné.</li></ul>
+<div class="example">Si une facture a été oubliée, une balance peut rester équilibrée malgré l'erreur. Il faut donc contrôler les pièces, les dates, les comptes et la réalité des opérations, pas seulement vérifier les totaux.</div>
+<button class="secondary" onclick="markDone('c4')">Marquer le chapitre comme terminé ✓</button>
+</div></details>
+<details class="lesson"><summary>Chapitre 5 — Achats, ventes, stocks et TVA : notions de base</summary><div class="body">
+<p>Une opération d'achat ou de vente doit être analysée à partir de la facture, du paiement, des conditions de livraison et des règles fiscales applicables. Les stocks représentent les biens détenus pour la vente ou la consommation dans le processus de production, selon leur nature.</p>
+<p>La TVA est un impôt sur la consommation qui peut être collecté sur les ventes et déductible sur certains achats lorsque les conditions légales sont remplies. Le taux, l'exigibilité, les exonérations et les modalités de déclaration dépendent de la législation en vigueur. Ne suppose pas automatiquement qu'une opération est soumise à un taux donné.</p>
+<div class="example"><strong>Exemple purement arithmétique :</strong> si une facture indique un prix hors taxe de 1 000 000 GNF et un taux de TVA hypothétique de 18 %, la TVA serait 180 000 GNF et le total 1 180 000 GNF. Ce taux est utilisé ici uniquement pour apprendre le calcul, pas comme affirmation du taux fiscal applicable à une opération en Guinée.</div>
+<div class="formula">Montant de TVA = base hors taxe × taux applicable</div>
+<div class="formula">Total TTC = montant HT + TVA</div>
+<button class="secondary" onclick="markDone('c5')">Marquer le chapitre comme terminé ✓</button>
+</div></details>
+<details class="lesson"><summary>Chapitre 6 — Amortissement : première approche</summary><div class="body">
+<p>L'amortissement répartit le montant amortissable d'une immobilisation sur sa durée d'utilisation prévue. Il traduit la consommation des avantages économiques de l'actif selon la méthode applicable. Il ne signifie pas que de l'argent est automatiquement placé de côté.</p>
+<div class="formula">Amortissement linéaire annuel simplifié = montant amortissable ÷ durée d'utilisation</div>
+<div class="example">Une machine coûte 6 000 000 GNF, sans valeur résiduelle retenue dans cet exemple, et sa durée d'utilisation estimée est de 5 ans. L'amortissement linéaire annuel serait 6 000 000 ÷ 5 = 1 200 000 GNF, sous réserve des règles et dates de mise en service applicables.</div>
+<button class="secondary" onclick="markDone('c6')">Marquer le chapitre comme terminé ✓</button>
+</div></details>
+<div class="card"><h3>Repère pour progresser en SYSCOHADA</h3><p>Après ces bases, il faudra étudier le plan de comptes OHADA, les écritures détaillées par opération, les rapprochements bancaires, les paies, les immobilisations, les travaux d'inventaire et les états financiers. Cette application constitue un support pédagogique et ne remplace pas les textes officiels à jour ni un conseil professionnel pour une déclaration réelle.</p></div>
+</section>
+
+<section id="entreprise" class="panel">
+<div class="hero"><span class="pill">Module 3</span><h2>Entrepreneuriat pratique</h2><p>Apprendre à transformer un problème réel en offre utile, puis tester l'activité avant d'engager beaucoup d'argent.</p></div>
+<details class="lesson" open><summary>Chapitre 1 — Qu'est-ce que l'entrepreneuriat ?</summary><div class="body">
+<div class="definition"><strong>Entrepreneuriat :</strong> démarche qui consiste à repérer une opportunité ou un besoin, mobiliser des ressources et créer une activité qui apporte de la valeur tout en assumant des risques calculés.</div>
+<p>Un entrepreneur n'est pas simplement une personne qui possède une entreprise. Il cherche un problème à résoudre, vérifie que des clients sont prêts à payer pour la solution, organise la livraison du produit ou service et apprend à partir des résultats.</p>
+<h3>Les étapes principales</h3><ol><li>Observer un besoin réel.</li><li>Définir un client précis.</li><li>Proposer une solution simple.</li><li>Parler à des clients potentiels et tester l'intérêt.</li><li>Calculer les coûts, le prix et la marge.</li><li>Réaliser une première vente ou un test.</li><li>Améliorer, mesurer et développer progressivement.</li></ol>
+<button class="secondary" onclick="markDone('e1')">Marquer le chapitre comme terminé ✓</button>
+</div></details>
+<details class="lesson"><summary>Chapitre 2 — Trouver et valider une idée</summary><div class="body">
+<p>Une idée n'est pas encore une entreprise. Il faut vérifier le problème, la fréquence du besoin, les solutions déjà utilisées, la capacité de payer et les conditions de livraison.</p>
+<h3>Questions à poser à de futurs clients</h3><ul><li>Quel problème rencontrez-vous dans ce domaine ?</li><li>Comment le résolvez-vous actuellement ?</li><li>Qu'est-ce qui vous déplaît dans les solutions existantes ?</li><li>À quelle fréquence ce problème survient-il ?</li><li>Qu'est-ce qui vous ferait essayer une nouvelle solution ?</li></ul>
+<p>Évite de demander seulement « Est-ce que tu aimes mon idée ? ». Les gens peuvent encourager une idée sans jamais l'acheter. Cherche des comportements et des engagements concrets.</p>
+<div class="example"><strong>Exemple :</strong> au lieu de créer tout de suite une boutique en ligne, tu peux interroger 10 petits commerçants pour savoir s'ils ont besoin d'affiches promotionnelles, de catalogues WhatsApp ou d'aide pour présenter leurs produits. Ensuite, propose un exemple gratuit ou un petit service test et vérifie si quelqu'un accepte de payer.</div>
+<button class="secondary" onclick="markDone('e2')">Marquer le chapitre comme terminé ✓</button>
+</div></details>
+<details class="lesson"><summary>Chapitre 3 — Client cible, proposition de valeur et concurrence</summary><div class="body">
+<p>Le client cible est le groupe de personnes auquel l'offre s'adresse. Une proposition de valeur explique le problème résolu, le bénéfice apporté et pourquoi l'offre est adaptée.</p>
+<div class="formula">« J'aide [type de client] à [obtenir un résultat] grâce à [solution précise]. »</div>
+<p>La concurrence comprend les entreprises similaires mais aussi les solutions de remplacement : faire soi-même, demander à un proche ou ne rien faire.</p>
+<div class="example">« J'aide les petits restaurants de mon quartier à présenter leurs menus sur WhatsApp avec des affiches lisibles réalisées sur téléphone. » C'est plus précis que « je fais du digital pour tout le monde ».</div>
+<button class="secondary" onclick="markDone('e3')">Marquer le chapitre comme terminé ✓</button>
+</div></details>
+<details class="lesson"><summary>Chapitre 4 — Prix, coûts et rentabilité</summary><div class="body">
+<p>Avant de fixer un prix, estime le temps de travail, les frais de communication, les déplacements, les outils, les commissions et les autres coûts. Un prix très bas peut attirer des clients mais rendre l'activité impossible à maintenir.</p>
+<div class="formula">Marge sur une vente = prix de vente − coûts variables liés à cette vente</div>
+<div class="formula">Seuil de rentabilité en quantité = charges fixes ÷ marge unitaire</div>
+<div class="example">Supposons un service vendu 100 000 GNF. Les coûts directement liés à la prestation sont de 20 000 GNF. La marge sur coûts variables est 80 000 GNF. Si les charges fixes de la période sont 400 000 GNF, il faut 400 000 ÷ 80 000 = 5 ventes pour couvrir ces charges dans ce modèle simplifié.</div>
+<p class="small muted">Les impôts, la rémunération du travail, les variations de coûts et d'autres charges peuvent modifier le résultat réel. Il faut les intégrer au fur et à mesure.</p>
+<button class="secondary" onclick="markDone('e4')">Marquer le chapitre comme terminé ✓</button>
+</div></details>
+<details class="lesson"><summary>Chapitre 5 — Business plan simple</summary><div class="body">
+<p>Un business plan présente le projet, les clients, le marché, l'offre, le fonctionnement, les moyens nécessaires, les prévisions financières et les risques. Il sert à tester la cohérence du projet, pas à garantir son succès.</p><h3>Plan en 8 rubriques</h3><ol><li>Résumé du projet en quelques lignes.</li><li>Problème client et solution proposée.</li><li>Clients ciblés et concurrence.</li><li>Produit ou service et prix.</li><li>Comment attirer et servir les clients.</li><li>Matériel, compétences et partenaires nécessaires.</li><li>Budget de départ, ventes prévues, charges et trésorerie.</li><li>Risques principaux et solutions de repli.</li></ol>
+<button class="secondary" onclick="markDone('e5')">Marquer le chapitre comme terminé ✓</button>
+</div></details>
+<details class="lesson"><summary>Chapitre 6 — Démarrer avec zéro capital : plan de test</summary><div class="body">
+<p>Avec zéro capital, privilégie une activité de service qui utilise des compétences et un téléphone, plutôt que l'achat de stock. Cela ne signifie pas que l'activité ne coûtera jamais rien : connexion, transport ou outils peuvent finir par être nécessaires.</p><h3>Plan de démarrage prudent</h3><ol><li>Choisir une seule compétence à pratiquer : rédaction de fiches produits, création de visuels simples, aide à la mise en page ou gestion de catalogue.</li><li>Créer deux ou trois exemples fictifs clairement présentés comme des démonstrations.</li><li>Identifier 15 commerces qui pourraient bénéficier du service.</li><li>Contacter poliment quelques commerçants et leur montrer un exemple personnalisé.</li><li>Proposer une petite prestation payante clairement définie, sans promettre des résultats irréalistes.</li><li>Noter les réponses, le temps passé, les coûts et les ventes.</li><li>Réinvestir seulement après avoir validé la demande et compris les coûts.</li></ol>
+<div class="definition"><strong>Attention aux arnaques :</strong> méfie-toi des systèmes qui demandent un dépôt pour débloquer des gains, promettent des revenus garantis ou exigent de recruter d'autres personnes pour être payé.</div>
+<button class="secondary" onclick="markDone('e6')">Marquer le chapitre comme terminé ✓</button>
+</div></details>
+<div class="card"><h3>Mon mini-plan d'affaires</h3><p>Complète ces champs pour clarifier ton idée. Les réponses restent sur cet appareil si le stockage local du navigateur est disponible.</p>
+<label for="idea">Mon idée de service ou de produit</label><input id="idea" type="text" placeholder="Ex. : créer des catalogues WhatsApp pour boutiques">
+<label for="client" style="display:block;margin-top:10px">Mon client cible</label><input id="client" type="text" placeholder="Ex. : petits commerçants de mon quartier">
+<label for="problem" style="display:block;margin-top:10px">Le problème que je résous</label><textarea id="problem" rows="3" placeholder="Décris le besoin du client"></textarea>
+<label for="price" style="display:block;margin-top:10px">Prix envisagé (GNF)</label><input id="price" type="number" min="0" placeholder="Ex. : 50000">
+<button class="primary" onclick="savePlan()">Enregistrer mon plan</button><p id="planMsg" class="muted"></p>
+</div>
+</section>
+
+<section id="exercices" class="panel">
+<div class="hero"><h2>Exercices corrigés</h2><p>Essaie d'abord sur papier. Ouvre ensuite la correction pour comparer ta démarche.</p></div>
+<details class="lesson" open><summary>Exercice 1 — Les fonctions de gestion</summary><div class="body"><p>Une boutique veut vendre 150 articles ce mois-ci. Le responsable répartit les tâches entre deux vendeurs, motive l'équipe et, à la fin du mois, compare les ventes réalisées à l'objectif.</p><p><strong>Questions :</strong> identifie une action de planification, d'organisation, de direction et de contrôle.</p><details><summary>Afficher la correction</summary><div class="body"><ul><li><strong>Planification :</strong> fixer l'objectif de 150 articles et prévoir les actions.</li><li><strong>Organisation :</strong> répartir les tâches entre les vendeurs.</li><li><strong>Direction :</strong> motiver et guider l'équipe.</li><li><strong>Contrôle :</strong> comparer les ventes réelles à l'objectif.</li></ul>La réponse peut varier si elle justifie correctement le lien entre l'action et la fonction.</div></details></div></details>
+<details class="lesson"><summary>Exercice 2 — Calcul du chiffre d'affaires</summary><div class="body"><p>Une vendeuse vend 25 sacs à 60 000 GNF chacun. Calcule le chiffre d'affaires.</p><details><summary>Afficher la correction</summary><div class="body"><div class="formula">25 × 60 000 = 1 500 000 GNF</div>Le chiffre d'affaires est de 1 500 000 GNF. Ce n'est pas automatiquement son bénéfice, car il faut déduire les coûts et charges.</div></details></div></details>
+<details class="lesson"><summary>Exercice 3 — Débit et crédit</summary><div class="body"><p>Une entreprise transfère 200 000 GNF de la caisse vers son compte bancaire. Quel compte augmente et quel compte diminue ?</p><details><summary>Afficher la correction</summary><div class="body">Le compte Banque augmente : débit de 200 000 GNF. Le compte Caisse diminue : crédit de 200 000 GNF. Total débit = total crédit. Les numéros de comptes exacts doivent être vérifiés dans le plan SYSCOHADA applicable.</div></details></div></details>
+<details class="lesson"><summary>Exercice 4 — Calcul de marge</summary><div class="body"><p>Un commerçant vend 10 unités à 50 000 GNF l'unité. Le coût d'achat total des 10 unités est de 350 000 GNF. Calcule le chiffre d'affaires et la marge brute simplifiée avant les autres charges.</p><details><summary>Afficher la correction</summary><div class="body">Chiffre d'affaires = 10 × 50 000 = 500 000 GNF. Marge brute simplifiée = 500 000 − 350 000 = 150 000 GNF. Les frais de transport, loyer, salaires et autres charges ne sont pas encore déduits.</div></details></div></details>
+<details class="lesson"><summary>Exercice 5 — Tester une idée d'entreprise</summary><div class="body"><p>Tu veux vendre des accessoires de téléphone, mais tu n'as pas de capital. Donne trois actions que tu peux réaliser avant d'acheter du stock.</p><details><summary>Afficher une correction possible</summary><div class="body"><ol><li>Interroger des clients potentiels sur les accessoires qu'ils achètent et les prix acceptables.</li><li>Comparer les prix et la fiabilité de plusieurs fournisseurs sans verser d'argent.</li><li>Tester l'intérêt avec un catalogue transparent, en précisant les délais et en n'acceptant pas de commandes que tu ne peux pas honorer.</li></ol>Une autre idée consiste à proposer d'abord un service sans stock. Il faut éviter de prendre l'argent d'un client sans être sûr de pouvoir livrer.</div></details></div></details>
+</section>
+
+<section id="quiz" class="panel">
+<div class="hero"><h2>Quiz de révision</h2><p>Choisis une réponse pour chaque question puis appuie sur « Corriger le quiz ». Tu peux recommencer autant de fois que tu veux.</p></div>
+<div id="quizArea"></div><button class="primary" onclick="gradeQuiz()">Corriger le quiz</button> <button class="secondary" onclick="buildQuiz()">Recommencer</button><p id="quizResult" aria-live="polite"></p>
+</section>
+
+<section id="glossaire" class="panel">
+<div class="hero"><h2>Glossaire essentiel</h2><p>Recherche un mot pour afficher sa définition.</p><input class="search" id="glossSearch" type="text" placeholder="Ex. : actif, marge, trésorerie…" oninput="filterGlossary()"></div><div id="glossList" class="grid"></div>
+</section>
+</main>
+<footer>EduFacile Business • Support d'apprentissage indépendant • Vérifie les règles comptables et fiscales officielles pour toute opération réelle.</footer>
+<script>
+const tabs=[...document.querySelectorAll('.navbtn')];
+function showTab(id){document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));tabs.forEach(b=>b.classList.toggle('active',b.dataset.tab===id));window.scrollTo({top:0,behavior:'smooth'});}
+tabs.forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+const doneKey='edufacile_done_v2';
+function getDone(){try{return JSON.parse(localStorage.getItem(doneKey)||'[]')}catch(e){return []}}
+function markDone(id){let d=getDone();if(!d.includes(id))d.push(id);try{localStorage.setItem(doneKey,JSON.stringify(d))}catch(e){}updateProgress();alert('Chapitre marqué comme terminé. Continue à pratiquer !')}
+function updateProgress(){const all=18,d=getDone().length;document.getElementById('progressBar').style.width=Math.min(100,d/all*100)+'%';document.getElementById('progressText').textContent=d+' chapitre(s) terminé(s) sur '+all+'.'}
+const glossary=[
+['Actif','Ressource présentée à l’actif du bilan selon les règles comptables.'],['Amortissement','Répartition du montant amortissable d’une immobilisation sur sa durée d’utilisation prévue.'],['Balance','État récapitulatif des mouvements et soldes des comptes.'],['Bénéfice','Résultat positif lorsque les produits dépassent les charges selon les règles applicables.'],['Bilan','État financier qui présente la situation de l’entité à une date donnée.'],['Business plan','Document qui présente le projet, le marché, l’organisation et les prévisions financières.'],['Capitaux propres','Intérêt résiduel dans les actifs après déduction des passifs.'],['Charge','Élément comptable qui contribue à diminuer le résultat d’une période.'],['Chiffre d’affaires','Montant des ventes réalisées sur une période, avant déduction des coûts.'],['Client cible','Groupe de personnes ou d’organisations auquel une offre est destinée.'],['Contrôle','Comparaison des résultats aux objectifs pour comprendre les écarts et corriger.'],['Débit','Côté gauche d’un compte comptable ; son effet dépend de la nature du compte.'],['Efficacité','Capacité à atteindre un objectif.'],['Efficience','Capacité à atteindre un résultat en utilisant les ressources de manière maîtrisée.'],['Entrepreneuriat','Démarche de création et de développement d’une activité autour d’un besoin ou d’une opportunité.'],['Gestion','Planification, organisation, direction et contrôle des ressources en vue d’objectifs.'],['Grand livre','Registre qui regroupe les mouvements par compte.'],['Marge','Différence entre un prix ou un produit et les coûts retenus dans son calcul.'],['Passif','Obligations et sources de financement présentées au bilan.'],['Planification','Définition des objectifs, des actions, des moyens et du calendrier.'],['Produit','Élément qui contribue à augmenter le résultat d’une période.'],['Proposition de valeur','Explication du bénéfice spécifique qu’une offre apporte à un client.'],['SYSCOHADA','Système comptable OHADA, cadre comptable applicable aux entités concernées dans l’espace OHADA.'],['Trésorerie','Disponibilités et moyens de paiement mobilisables à court terme.'],['TVA','Taxe sur la valeur ajoutée, dont les règles dépendent de la législation applicable.']];
+function renderGlossary(items){document.getElementById('glossList').innerHTML=items.map(x=>'<div class="tile"><strong>'+x[0]+'</strong><p>'+x[1]+'</p></div>').join('')}
+function filterGlossary(){let q=document.getElementById('glossSearch').value.toLowerCase();renderGlossary(glossary.filter(x=>(x[0]+' '+x[1]).toLowerCase().includes(q)))}
+const questions=[
+{q:'Quelle fonction consiste à comparer les résultats aux objectifs ?',a:['Planifier','Organiser','Contrôler','Diriger'],c:2,e:'Le contrôle compare les résultats réels aux objectifs et aide à corriger les écarts.'},
+{q:'Une entreprise vend 12 articles à 25 000 GNF. Quel est son chiffre d’affaires ?',a:['37 000 GNF','300 000 GNF','250 000 GNF','12 025 000 GNF'],c:1,e:'12 × 25 000 = 300 000 GNF.'},
+{q:'En comptabilité en partie double, que doit-on respecter ?',a:['Le débit est toujours supérieur au crédit','Chaque opération doit avoir un bénéfice','Le total des débits égale le total des crédits','Aucun justificatif n’est nécessaire'],c:2,e:'L’écriture est équilibrée : total débit = total crédit.'},
+{q:'Dans l’exemple simplifié, si un compte d’actif augmente, il est généralement…',a:['Crédité','Débité','Supprimé','Sans écriture'],c:1,e:'Une augmentation d’actif est généralement enregistrée au débit.'},
+{q:'Pourquoi le chiffre d’affaires n’est-il pas le bénéfice ?',a:['Parce qu’il ne concerne que les banques','Parce qu’il faut déduire les coûts et charges','Parce qu’il est toujours nul','Parce qu’il correspond aux dettes uniquement'],c:1,e:'Le chiffre d’affaires mesure les ventes ; le résultat tient aussi compte des charges et autres produits.'},
+{q:'Quelle est une bonne première étape pour valider une idée ?',a:['Emprunter beaucoup immédiatement','Acheter un grand stock','Interroger des clients potentiels sur leur besoin','Créer un logo coûteux'],c:2,e:'Il faut vérifier le besoin et les comportements des clients avant d’investir.'},
+{q:'Quel document présente la situation financière à une date donnée ?',a:['Le bilan','Une publicité','Le planning des congés uniquement','Une liste de clients uniquement'],c:0,e:'Le bilan présente la situation de l’entité à une date donnée.'},
+{q:'Qu’est-ce que la trésorerie ?',a:['Le nombre de salariés','Les disponibilités mobilisables à court terme','Le total des ventes depuis la création','Le prix de tous les stocks'],c:1,e:'La trésorerie concerne les moyens de paiement disponibles à court terme.'},
+{q:'Quel exemple illustre l’organisation ?',a:['Fixer une cible de vente','Répartir les tâches entre les employés','Comparer les ventes réelles','Calculer le résultat de fin d’année'],c:1,e:'Organiser consiste notamment à répartir les tâches et responsabilités.'},
+{q:'À quoi sert principalement une pièce justificative ?',a:['À décorer le journal','À étayer et documenter une opération comptable','À garantir automatiquement un bénéfice','À remplacer toutes les vérifications'],c:1,e:'Une pièce justificative documente la nature et le montant d’une opération.'}
+];
+function buildQuiz(){document.getElementById('quizResult').textContent='';document.getElementById('quizArea').innerHTML=questions.map((q,i)=>'<div class="question" id="qq'+i+'"><strong>'+ (i+1)+'. '+q.q+'</strong>'+q.a.map((a,j)=>'<label><input type="radio" name="q'+i+'" value="'+j+'"> '+a+'</label>').join('')+'<div class="feedback" id="fb'+i+'"></div></div>').join('')}
+function gradeQuiz(){let score=0;questions.forEach((q,i)=>{let selected=document.querySelector('input[name="q'+i+'"]:checked');let fb=document.getElementById('fb'+i);if(selected&&Number(selected.value)===q.c){score++;fb.className='feedback good';fb.textContent='Correct. '+q.e}else{fb.className='feedback bad';fb.textContent='À revoir. '+q.e}});document.getElementById('quizResult').innerHTML='<strong>Résultat : '+score+'/'+questions.length+'</strong> — '+(score>=8?'Très bien ! Relis quand même les explications.':score>=5?'Bon début. Revois les questions manquées et recommence.':'Prends le temps de relire les chapitres puis refais le quiz.')}
+function savePlan(){const p={idea:document.getElementById('idea').value,client:document.getElementById('client').value,problem:document.getElementById('problem').value,price:document.getElementById('price').value};try{localStorage.setItem('edufacile_plan_v1',JSON.stringify(p));document.getElementById('planMsg').textContent='Plan enregistré sur cet appareil si le navigateur autorise le stockage local.'}catch(e){document.getElementById('planMsg').textContent='Stockage indisponible : copie tes réponses dans un carnet.'}}
+function loadPlan(){try{const p=JSON.parse(localStorage.getItem('edufacile_plan_v1')||'{}');for(const k of ['idea','client','problem','price'])if(p[k])document.getElementById(k).value=p[k]}catch(e){}}
+updateProgress();renderGlossary(glossary);buildQuiz();loadPlan();
+</script>
+</body>
+</html>'''
+
+path = Path("/mnt/data/index_edufacile_business_enrichi.html")
+path.write_text(html, encoding="utf-8")
+print(f"Fichier créé : {path.name}")
+print(f"Taille : {path.stat().st_size:,} octets")
+print("Contenu : 3 modules, 17 chapitres détaillés, exercices corrigés, quiz interactif, glossaire, progression et mini-plan d'affaires.")
+=device
 <!DOCTYPE html>
 <html lang="fr">
 <head>
