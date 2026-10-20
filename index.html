@@ -1,1 +1,96 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduFacile Business</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f1f5f9;
+      color: #172554;
+    }
+    header {
+      background: #123b70;
+      color: white;
+      padding: 25px 15px;
+      text-align: center;
+    }
+    main {
+      padding: 20px;
+      max-width: 650px;
+      margin: auto;
+    }
+    .cours {
+      background: white;
+      padding: 18px;
+      margin: 15px 0;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #0001;
+    }
+    button {
+      background: #137547;
+      color: white;
+      padding: 12px 18px;
+      border: 0;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    #lecon {
+      display: none;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EduFacile Business</h1>
+    <p>Apprends aujourd'hui, entreprends demain !</p>
+  </header>
+
+  <main>
+    <h2>Bienvenue dans ton école numérique</h2>
+    <p>Apprends la gestion et l'entrepreneuriat gratuitement.</p>
+
+    <div class="cours">
+      <h3>Leçon 1 : Comprendre la gestion</h3>
+      <p>Niveau débutant · Gratuit</p>
+      <button onclick="ouvrirLecon()">Commencer le cours</button>
+
+      <div id="lecon">
+        <h3>Qu'est-ce que la gestion ?</h3>
+        <p>La gestion consiste à organiser et utiliser les ressources
+        disponibles pour atteindre un objectif.</p>
+        <p><b>Exemple :</b> tu possèdes une petite boutique.
+        Tu dois gérer ton argent, tes marchandises, tes clients
+        et ton temps.</p>
+        <h4>Les 4 fonctions de la gestion</h4>
+        <p>1. Prévoir : fixer des objectifs.</p>
+        <p>2. Organiser : répartir les tâches et les moyens.</p>
+        <p>3. Diriger : guider les personnes.</p>
+        <p>4. Contrôler : vérifier les résultats.</p>
+        <h4>Petit exercice</h4>
+        <p>Si tu ouvres une boutique, cite deux choses
+        que tu devras gérer.</p>
+      </div>
+    </div>
+
+    <div class="cours">
+      <h3>Notre objectif</h3>
+      <p>Apprendre progressivement la gestion, la comptabilité
+      et l'entrepreneuriat, même sans expérience.</p>
+    </div>
+  </main>
+
+  <script>
+    function ouvrirLecon() {
+      const lecon = document.getElementById("lecon");
+      lecon.style.display =
+        lecon.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
+
