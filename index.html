@@ -3,7 +3,295 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123b32">
+<title>EduFacile Business</title>
+<style>
+:root{--green:#123b32;--lime:#c7ef91;--bg:#f4f7f5;--card:#fff;--text:#1d2925;--muted:#66756e;--line:#dfe7e2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif;line-height:1.65}
+header{background:var(--green);color:white;padding:23px 17px}
+header h1{margin:0;font-size:26px}
+header p{margin:5px 0;color:#dcebe3}
+.wrap{max-width:850px;margin:auto;padding:16px}
+.hero{background:var(--green);color:white;border-radius:17px;padding:21px;margin-bottom:17px}
+.hero h2{margin-top:0}
+.hero strong{color:var(--lime)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:15px 0}
+.stat,.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px}
+.stat b{font-size:20px;display:block;color:var(--green)}
+nav{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px}
+button,.tab{font:inherit;cursor:pointer;border:0;border-radius:9px;padding:10px 13px}
+nav button{white-space:nowrap;background:#e3ebe6;color:var(--green)}
+nav button.active,.primary{background:var(--green);color:white}
+input,select{font:inherit;width:100%;padding:12px;border:1px solid #cbd7d0;border-radius:9px;background:white;margin:6px 0 13px}
+h2,h3{line-height:1.3}
+h2{font-size:23px}
+h3{font-size:18px}
+.muted{color:var(--muted)}
+.lesson{display:block;width:100%;text-align:left;background:white;border:1px solid var(--line);margin:8px 0;padding:14px;border-radius:11px;color:var(--text)}
+.lesson b{display:block;color:var(--green)}
+.lesson small{color:var(--muted)}
+.content{background:white;border:1px solid var(--line);border-radius:13px;padding:18px;margin:13px 0}
+.content h3{color:var(--green)}
+.callout{background:#edf5e9;border-left:4px solid #51855b;padding:12px;margin:12px 0;border-radius:5px}
+.answer{display:block;width:100%;text-align:left;background:#f3f6f4;border:1px solid var(--line);margin:8px 0;color:var(--text)}
+.answer:focus{outline:2px solid #51855b}
+footer{text-align:center;padding:25px;color:var(--muted);font-size:13px}
+.hidden{display:none!important}
+progress{width:100%;height:12px;accent-color:#43815b}
+</style>
+</head>
+<body>
+<header>
+<h1>EduFacile Business</h1>
+<p>Apprendre aujourd'hui. Entreprendre demain.</p>
+</header>
+<main class="wrap">
+<section class="hero">
+<p>TON CAMPUS NUMÉRIQUE</p>
+<h2>Construis tes compétences <strong>pas à pas.</strong></h2>
+<p>Des cours expliqués, des exemples concrets, des exercices corrigés et des quiz pour apprendre à ton rythme.</p>
+</section>
+<div class="stats">
+<div class="stat"><b id="total">0</b><small>Leçons terminées</small></div>
+<div class="stat"><b>3</b><small>Domaines</small></div>
+<div class="stat"><b id="percent">0%</b><small>Progression</small></div>
+</div>
+<nav id="nav">
+<button class="active" data-page="home">Accueil</button>
+<button data-page="gestion">Gestion</button>
+<button data-page="compta">SYSCOHADA</button>
+<button data-page="entreprise">Entrepreneuriat</button>
+<button data-page="quiz">Quiz</button>
+</nav>
+<input id="search" placeholder="Rechercher une leçon..." aria-label="Rechercher une leçon">
+<section id="home">
+<div class="card">
+<h2>Bienvenue dans ton apprentissage</h2>
+<p>Ce programme est conçu pour les débutants. Commence par les fondamentaux, comprends les exemples, puis passe aux exercices.</p>
+<h3>Parcours recommandé</h3>
+<ol>
+<li>Comprendre l'entreprise et la gestion.</li>
+<li>Apprendre les bases de la comptabilité.</li>
+<li>Imaginer et tester une idée de business.</li>
+<li>Réviser avec les quiz et les exercices.</li>
+</ol>
+<p class="muted">Conseil : étudie une leçon, écris tes propres exemples dans un cahier, puis explique la notion avec tes mots.</p>
+</div>
+</section>
+<section id="catalogue"></section>
+<section id="lesson" class="hidden"></section>
+<section id="quiz" class="hidden"></section>
+</main>
+<footer>EduFacile Business · Version éducative initiale · Apprends à ton rythme.</footer>
+<script>
+const courses = {
+gestion:{
+title:"Gestion d'entreprise",
+intro:"La gestion consiste à organiser les ressources d'une organisation pour atteindre des objectifs.",
+lessons:[
+{title:"1. Comprendre la gestion",level:"Débutant",body:`
+<h3>1. Définition</h3>
+<p>La <b>gestion</b> est l'ensemble des décisions et des actions qui permettent d'utiliser les ressources d'une organisation pour atteindre ses objectifs.</p>
+<p>Une organisation peut être une entreprise commerciale, une association, une administration ou une école.</p>
+<h3>2. Les quatre fonctions fondamentales</h3>
+<ul><li><b>Planifier :</b> définir les objectifs et les actions à réaliser.</li><li><b>Organiser :</b> répartir les tâches, les moyens et les responsabilités.</li><li><b>Diriger :</b> guider, communiquer, motiver et prendre des décisions.</li><li><b>Contrôler :</b> comparer les résultats aux objectifs et corriger les écarts.</li></ul>
+<div class="callout"><b>Exemple :</b> tu veux vendre 100 sacs en un mois. Tu prévois ton stock (planifier), répartis les tâches (organiser), animes ton activité (diriger), puis compares les ventes à ton objectif (contrôler).</div>
+<h3>3. Pourquoi la gestion est-elle importante ?</h3>
+<p>Elle aide à éviter le gaspillage, mieux servir les clients, suivre les dépenses, motiver les collaborateurs et mesurer les résultats.</p>
+<h3>À retenir</h3><p>La gestion ne consiste pas seulement à donner des ordres : elle consiste à prendre des décisions cohérentes et à vérifier leurs résultats.</p>
+`},
+{title:"2. L'entreprise et ses objectifs",level:"Débutant",body:`
+<h3>Définition de l'entreprise</h3><p>Une entreprise est une organisation qui combine des ressources pour produire ou vendre des biens ou des services.</p>
+<h3>Biens et services</h3><p>Un bien est un produit matériel, par exemple un cahier, un téléphone ou un sac de riz. Un service est une prestation, par exemple une réparation, un transport ou un cours.</p>
+<h3>Les principaux objectifs</h3><ul><li>Économique : assurer les revenus et la pérennité.</li><li>Commercial : satisfaire les clients et développer les ventes.</li><li>Social : assurer de bonnes conditions de travail.</li><li>Sociétal : limiter les effets négatifs sur la société et l'environnement.</li></ul>
+<div class="callout"><b>Exemple :</b> une boutique vend du riz. Elle doit satisfaire ses clients, payer ses charges, gérer ses stocks et dégager un résultat suffisant pour continuer.</div>
+<h3>Exercice</h3><p>Un salon de coiffure vend-il un bien ou un service ? Réponse : principalement un service, car il réalise une prestation.</p>`},
+{title:"3. Les ressources de l'entreprise",level:"Débutant",body:`
+<p>Pour fonctionner, une entreprise utilise plusieurs catégories de ressources.</p>
+<ul><li><b>Humaines :</b> les personnes, leurs compétences et leur temps.</li><li><b>Financières :</b> l'argent disponible, les apports et les financements.</li><li><b>Matérielles :</b> locaux, équipements, marchandises et véhicules.</li><li><b>Informationnelles :</b> prix, commandes, fichiers clients et données du marché.</li></ul>
+<h3>Application pratique</h3><p>Pour une petite activité de vente en ligne, le téléphone est une ressource matérielle, les connaissances en vente sont une ressource humaine, l'argent des commandes est une ressource financière et la liste des clients est une ressource informationnelle.</p>
+<h3>Bien gérer les ressources</h3><p>Il faut identifier les besoins, éviter les pertes, protéger les informations et mesurer l'utilité de chaque dépense.</p>`},
+{title:"4. Planification et objectifs",level:"Intermédiaire",body:`
+<p>Planifier consiste à déterminer où l'on veut aller, comment y arriver, avec quels moyens et dans quel délai.</p>
+<h3>Un objectif bien défini</h3><p>Un objectif utile est précis, mesurable, réaliste, pertinent et limité dans le temps.</p>
+<div class="callout"><b>Exemple :</b> « Obtenir 20 commandes de sacs en 30 jours grâce à des publications quotidiennes et au suivi des demandes. » Cet objectif est plus utile que « vendre beaucoup ».</div>
+<h3>Plan d'action</h3><ol><li>Définir le résultat recherché.</li><li>Identifier les tâches.</li><li>Attribuer les responsabilités.</li><li>Fixer un calendrier et un budget.</li><li>Mesurer les résultats et ajuster le plan.</li></ol>`},
+{title:"5. Management et leadership",level:"Intermédiaire",body:`
+<p>Le management consiste à coordonner les personnes et les ressources pour atteindre des objectifs. Le leadership est la capacité à influencer et à mobiliser les personnes autour d'une direction.</p>
+<h3>Compétences utiles</h3><ul><li>Communication claire et écoute.</li><li>Répartition équitable des responsabilités.</li><li>Résolution des conflits.</li><li>Prise de décision et responsabilité.</li><li>Suivi des résultats et retour constructif.</li></ul>
+<p>Un responsable efficace ne fait pas nécessairement tout lui-même : il définit les attentes, fournit les moyens, accompagne son équipe et assume ses décisions.</p>`},
+{title:"6. Introduction à la stratégie",level:"Avancé",body:`
+<p>La stratégie est l'ensemble des choix à long terme qui permettent à une organisation de se positionner et de créer de la valeur.</p>
+<h3>Analyse SWOT</h3><ul><li><b>Forces :</b> avantages internes.</li><li><b>Faiblesses :</b> limites internes.</li><li><b>Opportunités :</b> évolutions externes favorables.</li><li><b>Menaces :</b> risques externes.</li></ul>
+<div class="callout"><b>Exemple :</b> une boutique peut avoir comme force un bon service, comme faiblesse un stock limité, comme opportunité une demande croissante en ligne et comme menace l'arrivée d'un concurrent.</div>
+<p>Une stratégie sérieuse relie cette analyse à des objectifs, un budget, des actions et des indicateurs de résultat.</p>`}
+]},
+compta:{
+title:"Comptabilité SYSCOHADA",
+intro:"La comptabilité enregistre les opérations et aide à comprendre la situation financière d'une entité.",
+lessons:[
+{title:"1. À quoi sert la comptabilité ?",level:"Débutant",body:`
+<h3>Définition</h3><p>La comptabilité est un système organisé d'enregistrement, de classement et de présentation des opérations financières d'une entité.</p>
+<h3>Ses objectifs</h3><ul><li>Conserver la trace des opérations.</li><li>Suivre les dettes, les créances et la trésorerie.</li><li>Déterminer le résultat d'une période.</li><li>Produire des informations utiles aux dirigeants et aux autres utilisateurs.</li></ul>
+<p>Le SYSCOHADA est le système comptable applicable dans le cadre du droit comptable OHADA. Il repose sur des règles communes, un plan de comptes et des états financiers.</p>
+<div class="callout"><b>Exemple :</b> lorsqu'une boutique achète des marchandises, elle conserve la facture et enregistre l'opération selon les règles applicables.</div>
+<p>La comptabilité réelle exige des pièces justificatives, le respect des règles en vigueur et une classification correcte des opérations.</p>`},
+{title:"2. Le bilan comptable",level:"Débutant",body:`
+<p>Le bilan présente la situation patrimoniale de l'entité à une date donnée.</p>
+<h3>L'actif</h3><p>L'actif regroupe les éléments que l'entité possède ou contrôle et qui répondent aux critères comptables : immobilisations, stocks, créances et trésorerie, par exemple.</p>
+<h3>Le passif</h3><p>Le passif présente les ressources qui financent l'actif, notamment les capitaux propres et les dettes.</p>
+<div class="callout"><b>Équation fondamentale :</b><br>ACTIF = CAPITAUX PROPRES + DETTES</div>
+<h3>Exemple simplifié</h3><p>Une entreprise possède 5 000 000 GNF d'actifs et doit 2 000 000 GNF. Dans cet exemple simple, ses capitaux propres sont de 3 000 000 GNF.</p>
+<p>Cette équation permet de vérifier l'équilibre du bilan, mais ne signifie pas que toute la valeur des actifs est disponible en espèces.</p>`},
+{title:"3. Débit et crédit",level:"Débutant",body:`
+<p>La comptabilité en partie double enregistre chaque opération dans au moins deux comptes. Le total des débits doit être égal au total des crédits.</p>
+<p><b>Attention :</b> débit ne signifie pas toujours une dépense et crédit ne signifie pas toujours un revenu. Leur effet dépend de la nature du compte.</p>
+<ul><li>Pour un compte d'actif, une augmentation est généralement enregistrée au débit.</li><li>Pour un compte de passif, une augmentation est généralement enregistrée au crédit.</li><li>Une charge est généralement débitée.</li><li>Un produit est généralement crédité.</li></ul>
+<div class="callout"><b>Exemple pédagogique :</b> l'entreprise reçoit 100 000 GNF en espèces provenant d'un apport en capital. On débite le compte de trésorerie et on crédite le compte de capital, sous réserve du compte exact applicable.</div>
+<h3>Vérification</h3><p>Débit : 100 000 GNF. Crédit : 100 000 GNF. L'écriture est équilibrée.</p>`},
+{title:"4. Le journal comptable",level:"Intermédiaire",body:`
+<p>Le journal présente les opérations dans l'ordre chronologique. Une écriture comporte notamment la date, les comptes concernés, les montants débités et crédités, et un libellé explicatif.</p>
+<h3>Exemple simplifié : apport en espèces</h3>
+<p>Le propriétaire apporte 500 000 GNF au capital de l'entreprise.</p>
+<table style="width:100%;border-collapse:collapse"><tr><th style="text-align:left;border-bottom:1px solid #ddd">Compte</th><th style="text-align:right;border-bottom:1px solid #ddd">Débit</th><th style="text-align:right;border-bottom:1px solid #ddd">Crédit</th></tr><tr><td>Trésorerie / caisse</td><td style="text-align:right">500 000</td><td></td></tr><tr><td>Capital</td><td></td><td style="text-align:right">500 000</td></tr></table>
+<p class="muted">Exemple pédagogique simplifié : le numéro précis des comptes dépend du plan de comptes et de la nature de l'entité. Il faut vérifier la nomenclature SYSCOHADA applicable.</p>
+<h3>Pourquoi le libellé compte-t-il ?</h3><p>Il explique l'opération et facilite les contrôles ultérieurs. Les pièces justificatives doivent être conservées.</p>`},
+{title:"5. Charges, produits et résultat",level:"Intermédiaire",body:`
+<p>Les charges correspondent aux consommations et coûts comptabilisés pendant la période. Les produits correspondent aux revenus et autres éléments comptabilisés comme produits.</p>
+<div class="callout"><b>Résultat = Total des produits − Total des charges</b></div>
+<p>Si les produits dépassent les charges, le résultat est bénéficiaire. Si les charges dépassent les produits, le résultat est déficitaire.</p>
+<h3>Exemple</h3><p>Une activité enregistre 3 000 000 GNF de produits et 2 200 000 GNF de charges sur une période. Son résultat simplifié est de 800 000 GNF.</p>
+<p>Le résultat comptable n'est pas nécessairement égal à l'argent en caisse : certaines opérations ne provoquent pas un encaissement ou un décaissement immédiat.</p>`},
+{title:"6. Les pièces justificatives et le contrôle",level:"Avancé",body:`
+<p>Une comptabilité fiable s'appuie sur des documents qui permettent de justifier les opérations : factures, reçus, relevés bancaires, contrats et autres pièces pertinentes.</p>
+<h3>Bonnes pratiques</h3><ul><li>Classer les documents par date et par nature.</li><li>Rapprocher les opérations bancaires avec les enregistrements.</li><li>Contrôler la cohérence des soldes et des pièces.</li><li>Respecter les obligations de conservation et de déclaration.</li><li>Ne jamais inventer une facture ou modifier une pièce pour masquer une opération.</li></ul>
+<p>Pour les cas réels, vérifier les textes OHADA en vigueur, les règles fiscales locales et les éventuelles dispositions particulières applicables à l'entreprise.</p>`}
+]},
+entreprise:{
+title:"Entrepreneuriat",
+intro:"L'entrepreneuriat consiste à transformer une opportunité en activité créatrice de valeur.",
+lessons:[
+{title:"1. Comprendre l'entrepreneuriat",level:"Débutant",body:`
+<p>L'entrepreneuriat est une démarche qui consiste à identifier un besoin, proposer une solution, mobiliser des ressources et organiser une activité pour créer de la valeur.</p>
+<h3>Qui est entrepreneur ?</h3><p>Un entrepreneur peut créer une boutique, une activité de services, une entreprise numérique ou une entreprise sociale. Il n'est pas nécessaire de commencer avec une grande société.</p>
+<h3>Les étapes essentielles</h3><ol><li>Identifier un problème ou un besoin.</li><li>Comprendre les clients.</li><li>Concevoir une solution.</li><li>Tester l'intérêt avec peu de moyens.</li><li>Calculer les coûts et les prix.</li><li>Améliorer l'offre et développer l'activité.</li></ol>
+<div class="callout"><b>Principe :</b> commence par vérifier qu'un client veut réellement la solution avant d'investir beaucoup d'argent.</div>`},
+{title:"2. Trouver une idée de business",level:"Débutant",body:`
+<p>Une bonne idée répond à un besoin réel, s'adresse à des clients identifiables et peut être proposée à un coût soutenable.</p>
+<h3>Trois questions</h3><ul><li>Quel problème est-ce que je résous ?</li><li>Qui rencontre ce problème et comment le résout-il aujourd'hui ?</li><li>Pourquoi le client choisirait-il mon offre ?</li></ul>
+<p>Exemples à étudier : création de visuels pour commerces, assistance numérique, revente sur commande, cours particuliers ou gestion de pages commerciales.</p>
+<p>Le choix dépend des compétences, de la demande locale, de l'accès aux clients et des règles applicables.</p>
+<h3>Exercice</h3><p>Observe cinq commerces de ton quartier. Note un problème qu'ils rencontrent et une solution simple qu'ils pourraient accepter de payer.</p>`},
+{title:"3. Étude de marché",level:"Intermédiaire",body:`
+<p>L'étude de marché cherche à vérifier la demande, comprendre les clients, connaître les concurrents et estimer le prix acceptable.</p>
+<h3>Comment commencer sans budget ?</h3><ol><li>Définis un type de client.</li><li>Interroge cinq à dix clients potentiels.</li><li>Demande comment ils règlent le problème actuellement.</li><li>Observe les offres et les prix des concurrents.</li><li>Teste une petite offre avant de développer.</li></ol>
+<p>Ne confonds pas les compliments avec une intention d'achat. Une précommande réelle ou un petit achat test fournit généralement une preuve plus utile.</p>`},
+{title:"4. Calculer un prix et une marge",level:"Intermédiaire",body:`
+<p>Pour fixer un prix, il faut connaître les coûts, la valeur perçue et les prix du marché.</p>
+<div class="callout"><b>Marge brute simplifiée = Prix de vente − Coût d'achat des marchandises vendues</b></div>
+<p>Exemple : un article acheté 70 000 GNF est vendu 100 000 GNF. La différence est de 30 000 GNF, avant les autres frais.</p>
+<p>Si le transport coûte 5 000 GNF et l'emballage 2 000 GNF, il reste 23 000 GNF avant les autres charges éventuelles. Il ne faut pas confondre cette marge simplifiée avec le bénéfice net.</p>
+<h3>Attention aux calculs</h3><p>La marge sur coût d'achat se calcule ici par rapport au prix de vente à 30 %. Le taux de majoration sur le coût d'achat est différent : 30 000 ÷ 70 000, soit environ 42,9 %.</p>`},
+{title:"5. Construire un business plan",level:"Avancé",body:`
+<p>Le business plan présente le projet, ses clients, son modèle économique, sa stratégie et ses prévisions financières.</p>
+<h3>Structure simple</h3><ol><li>Résumé du projet.</li><li>Problème et solution proposée.</li><li>Clients cibles et étude de marché.</li><li>Concurrents et différence de l'offre.</li><li>Marketing, ventes et distribution.</li><li>Organisation et besoins matériels.</li><li>Coûts, prix, trésorerie et prévisions.</li><li>Risques, mesures de réduction et objectifs.</li></ol>
+<p>Les chiffres doivent reposer sur des hypothèses explicites. Un business plan n'est pas une garantie de bénéfice, mais un outil pour réfléchir, tester et décider.</p>`},
+{title:"6. Démarrer avec zéro capital",level:"Avancé",body:`
+<p>Sans capital, privilégie une activité où tu peux vendre une compétence ou tester une demande sans acheter de stock.</p>
+<h3>Approche pratique</h3><ol><li>Choisis un service simple que tu peux apprendre et réaliser avec ton téléphone.</li><li>Crée deux exemples de démonstration.</li><li>Présente une offre claire à des clients potentiels.</li><li>Conviens du prix, du délai et du résultat attendu.</li><li>Réalise le travail honnêtement et demande un retour.</li><li>Réinvestis progressivement les revenus réellement obtenus.</li></ol>
+<p>Exemples à tester : visuels promotionnels, rédaction de descriptions de produits, catalogues WhatsApp ou aide à la publication de contenus.</p>
+<div class="callout"><b>Prudence :</b> évite les offres qui promettent un revenu garanti, demandent un dépôt pour débloquer des gains ou exigent de recruter des personnes pour être payé.</div>`}
+]}
+};
+const quizData=[
+{q:"Quelle est la première fonction classique de la gestion ?",a:["Planifier","Contrôler les impôts","Vendre uniquement"],correct:0,why:"La planification fixe les objectifs et les actions. Les quatre fonctions classiques sont planifier, organiser, diriger et contrôler."},
+{q:"Lequel est une ressource informationnelle ?",a:["Une liste de clients","Une chaise","Un billet de banque"],correct:0,why:"Une liste de clients est une information utile à la gestion commerciale."},
+{q:"À quoi sert principalement le bilan ?",a:["À présenter une situation à une date donnée","À noter uniquement les ventes du jour","À fixer les horaires"],correct:0,why:"Le bilan présente la situation patrimoniale à une date donnée."},
+{q:"Dans une écriture équilibrée, le total des débits est-il égal au total des crédits ?",a:["Oui","Non, jamais","Seulement pour les grandes entreprises"],correct:0,why:"La partie double exige l'égalité des débits et des crédits."},
+{q:"Les produits sont-ils toujours égaux au bénéfice ?",a:["Oui","Non","Seulement quand il y a de l'argent en caisse"],correct:1,why:"Le résultat correspond aux produits moins les charges, selon les règles comptables applicables."},
+{q:"Que faut-il vérifier avant d'investir beaucoup dans une idée ?",a:["La demande réelle des clients","La couleur du logo uniquement","Le nombre de concurrents dans le monde entier"],correct:0,why:"Il faut vérifier que les clients rencontrent le problème et sont intéressés par la solution."},
+{q:"Un article coûte 70 000 GNF et se vend 100 000 GNF. Quelle est la différence avant les autres frais ?",a:["30 000 GNF","70 000 GNF","170 000 GNF"],correct:0,why:"100 000 − 70 000 = 30 000 GNF. Les autres frais doivent encore être déduits."},
+{q:"Quel document présente généralement les étapes et les prévisions d'un projet ?",a:["Le business plan","Une affiche seule","Un reçu sans explication"],correct:0,why:"Le business plan décrit le projet, son marché, son fonctionnement et ses prévisions."}
+];
+let page="home",selectedLesson=null,quizIndex=0,score=0,answered=false;
+let completed=[];
+try{completed=JSON.parse(localStorage.getItem("efb_completed")||"[]")}catch(e){completed=[]}
+function saveProgress(){try{localStorage.setItem("efb_completed",JSON.stringify(completed))}catch(e){}}
+function updateStats(){
+document.getElementById("total").textContent=completed.length;
+let all=Object.values(courses).reduce((n,c)=>n+c.lessons.length,0);
+document.getElementById("percent").textContent=Math.round(completed.length/all*100)+"%";
+}
+function showPage(p){
+page=p;
+document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===p));
+document.getElementById("home").classList.toggle("hidden",p!=="home");
+document.getElementById("catalogue").classList.toggle("hidden",!courses[p]);
+document.getElementById("lesson").classList.add("hidden");
+document.getElementById("quiz").classList.toggle("hidden",p!=="quiz");
+document.getElementById("search").classList.toggle("hidden",p==="quiz");
+if(courses[p])renderCatalog(p);
+if(p==="quiz")renderQuiz();
+window.scrollTo(0,0);
+}
+function renderCatalog(p){
+const c=courses[p],term=document.getElementById("search").value.toLowerCase();
+document.getElementById("catalogue").innerHTML=`<h2>${c.title}</h2><p class="muted">${c.intro}</p>`+
+c.lessons.map((l,i)=>({l,i})).filter(x=>x.l.title.toLowerCase().includes(term)||x.l.level.toLowerCase().includes(term)||c.title.toLowerCase().includes(term)).map(({l,i})=>`
+<button class="lesson" data-index="${i}"><b>${completed.includes(p+"-"+i)?"✓ ":""}${l.title}</b><small>${l.level} · ${completed.includes(p+"-"+i)?"Terminée":"Ouvrir le cours"}</small></button>`).join("")+
+(c.lessons.length===0?"":`<p class="muted">Lis chaque cours puis marque-le comme terminé pour suivre ta progression.</p>`);
+document.querySelectorAll("#catalogue [data-index]").forEach(b=>b.onclick=()=>openLesson(p,+b.dataset.index));
+}
+function openLesson(p,i){
+selectedLesson={p,i};
+let l=courses[p].lessons[i];
+document.getElementById("catalogue").classList.add("hidden");
+let el=document.getElementById("lesson");
+el.classList.remove("hidden");
+el.innerHTML=`<button id="back" class="primary">← Retour aux leçons</button><div class="content"><p class="muted">${courses[p].title} · ${l.level}</p><h2>${l.title}</h2>${l.body}<hr><p><b>Vérifie ta compréhension :</b> peux-tu expliquer cette leçon sans regarder le texte et donner un exemple personnel ?</p><button id="done" class="primary">${completed.includes(p+"-"+i)?"Leçon déjà terminée ✓":"Marquer comme terminée ✓"}</button></div>`;
+document.getElementById("back").onclick=()=>{el.classList.add("hidden");document.getElementById("catalogue").classList.remove("hidden");renderCatalog(p);window.scrollTo(0,0)};
+document.getElementById("done").onclick=()=>{
+if(!completed.includes(p+"-"+i))completed.push(p+"-"+i);
+saveProgress();updateStats();openLesson(p,i);
+};
+window.scrollTo(0,0);
+}
+function renderQuiz(){
+let el=document.getElementById("quiz");
+if(quizIndex>=quizData.length){
+el.innerHTML=`<div class="content"><h2>Résultat du quiz</h2><p>Tu as obtenu <b>${score} / ${quizData.length}</b>.</p><p>${score===quizData.length?"Excellent ! Toutes les réponses sont correctes.":score>=5?"Bon travail ! Relis les notions où tu as hésité.":"Continue à apprendre, puis recommence le quiz."}</p><button class="primary" id="restart">Recommencer le quiz</button></div>`;
+document.getElementById("restart").onclick=()=>{quizIndex=0;score=0;answered=false;renderQuiz()};
+return;
+}
+let q=quizData[quizIndex];
+el.innerHTML=`<div class="content"><p class="muted">Question ${quizIndex+1} sur ${quizData.length}</p><progress value="${quizIndex}" max="${quizData.length}"></progress><h2>${q.q}</h2><div id="answers">${q.a.map((a,i)=>`<button class="answer" data-answer="${i}">${a}</button>`).join("")}</div><div id="feedback"></div><button id="next" class="primary hidden">${quizIndex===quizData.length-1?"Voir le résultat":"Question suivante →"}</button></div>`;
+document.querySelectorAll("[data-answer]").forEach(b=>b.onclick=()=>{
+if(answered)return;answered=true;
+let n=+b.dataset.answer;
+if(n===q.correct)score++;
+document.querySelectorAll("[data-answer]").forEach(x=>{x.disabled=true;if(+x.dataset.answer===q.correct)x.style.borderColor="#43815b"});
+document.getElementById("feedback").innerHTML=`<div class="callout"><b>${n===q.correct?"Bonne réponse !":"Pas tout à fait."}</b><p>${q.why}</p></div>`;
+document.getElementById("next").classList.remove("hidden");
+});
+document.getElementById("next").onclick=()=>{quizIndex++;answered=false;renderQuiz();window.scrollTo(0,0)};
+}
+document.querySelectorAll("#nav button").forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+document.getElementById("search").addEventListener("input",()=>{
+if(courses[page])renderCatalog(page);
+});
+updateStats();
+showPage("home");
+</script>
+</body>
+</html>
+width, initial-scale=1.0">
   <title>EduFacile Business</title>
   <style>
     body {
