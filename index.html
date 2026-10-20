@@ -3,7 +3,200 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="from pathlib import Path
+  <meta name="viewport" content="from <!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123c35">
+<title>EduFacile Business — Parcours universitaire</title>
+<style>
+:root{--ink:#172b27;--muted:#536660;--green:#123c35;--mint:#e8f4ef;--gold:#d9a441;--paper:#fbfcfa;--line:#dce6e0;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{background:linear-gradient(135deg,#123c35,#1f6253);color:white;padding:28px 18px 24px}
+.wrap{max-width:980px;margin:auto}header .eyebrow{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#d6eee4;font-weight:700}
+h1{font-size:clamp(1.8rem,5vw,3rem);line-height:1.12;margin:.35rem 0 .8rem}header p{max-width:760px;margin:.4rem 0;color:#edf7f2}
+.notice{background:#fff6df;border-left:4px solid var(--gold);padding:12px 14px;border-radius:8px;color:#57451d;margin:18px 0}
+nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:5;overflow-x:auto;white-space:nowrap;padding:10px max(14px,calc((100% - 950px)/2));}
+nav a{display:inline-block;color:var(--green);text-decoration:none;font-weight:700;padding:7px 10px;border-radius:8px;margin-right:3px}nav a:hover{background:var(--mint)}
+main{max-width:980px;margin:auto;padding:18px 14px 48px}
+section{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;margin:18px 0;box-shadow:0 3px 12px #18382d08}
+h2{font-size:1.55rem;line-height:1.25;color:var(--green);margin:.1rem 0 .8rem}h3{font-size:1.12rem;color:#22584b;margin:1.3rem 0 .35rem}p{margin:.55rem 0}ul,ol{padding-left:1.4rem}li{margin:.32rem 0}
+.kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:#64766f}
+.formula{background:#f1f7f4;border:1px solid #d5e7de;padding:12px 14px;border-radius:9px;font-weight:650;overflow-wrap:anywhere}
+.case{background:#f7f9f8;border-left:4px solid #5d9483;padding:12px 15px;border-radius:8px;margin:12px 0}
+.answer{display:none;background:#edf7ef;border:1px solid #cce4d1;border-radius:8px;padding:12px 14px;margin-top:10px}.answer.show{display:block}
+button{border:0;border-radius:9px;background:var(--green);color:#fff;font-weight:750;font-size:1rem;padding:11px 15px;cursor:pointer;margin:5px 5px 5px 0}button.secondary{background:#e9f2ed;color:var(--green);border:1px solid #d0e2d8}
+input[type=text],textarea,select{font:inherit;padding:10px;border:1px solid #b9cbc2;border-radius:8px;width:100%;margin:5px 0 10px;background:#fff;color:var(--ink)}
+.quizq{padding:12px 0;border-top:1px solid var(--line)}label{display:block;margin:5px 0}.result{font-weight:800;margin-top:12px}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.95rem}th,td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}th{background:#edf5f0}
+.small{color:var(--muted);font-size:.9rem}.pill{display:inline-block;background:var(--mint);color:var(--green);border-radius:999px;padding:4px 9px;font-size:.78rem;font-weight:800;margin:2px}
+footer{background:#102f2a;color:#e8f4ef;padding:22px 16px;text-align:center}
+@media(min-width:720px){main{padding:24px 20px 60px}section{padding:26px}.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="eyebrow">EduFacile Business • Édition universitaire</div>
+<h1>Comprendre, calculer, décider et entreprendre</h1>
+<p>Un parcours structuré en gestion, comptabilité OHADA et entrepreneuriat. Chaque chapitre présente les notions, une méthode, un cas pratique et une correction expliquée.</p>
+<p><span class="pill">Licence 1 à Licence 3</span><span class="pill">Cas chiffrés en GNF</span><span class="pill">Exercices corrigés</span></p>
+</div></header>
+<nav>
+<a href="#mode">Mode d'emploi</a><a href="#gestion">Gestion</a><a href="#compta">Comptabilité OHADA</a><a href="#entrepreneuriat">Entrepreneuriat</a><a href="#examen">Évaluation</a><a href="#glossaire">Glossaire</a>
+</nav>
+<main>
+<div class="notice"><strong>Important :</strong> ce support pédagogique explique les principes et propose des cas fictifs. Pour une écriture réelle, vérifiez le plan de comptes applicable, les textes OHADA en vigueur et les obligations fiscales locales auprès d'un enseignant ou d'un professionnel. Les exercices ne remplacent pas le programme officiel de votre établissement.</div>
+<section id="mode">
+<div class="kicker">Avant de commencer</div><h2>Comment travailler comme à l'université</h2>
+<ol>
+<li>Lisez la définition et identifiez les mots techniques.</li>
+<li>Reproduisez les calculs sur papier avant de regarder la correction.</li>
+<li>Pour chaque cas, écrivez votre raisonnement : données, formule, calcul, interprétation et décision.</li>
+<li>Refaites les exercices sans consulter les réponses, puis expliquez la méthode à voix haute.</li>
+</ol>
+<p><strong>Progression proposée :</strong> L1 — bases, documents et calculs; L2 — analyse, budgets et décisions; L3 — diagnostic, stratégie et pilotage. Les niveaux sont indicatifs : les programmes varient selon les universités.</p>
+</section>
+
+<section id="gestion">
+<div class="kicker">Module 1 • Management et gestion</div><h2>Chapitre 1 — La gestion : objectifs, ressources et performance</h2>
+<h3>1.1 Définition et rôle du gestionnaire</h3>
+<p>La gestion est l'ensemble des décisions et des actions qui permettent de mobiliser des ressources afin d'atteindre des objectifs. Une organisation peut être une entreprise, une association, une administration ou un établissement scolaire. Le gestionnaire ne se contente pas de « donner des ordres » : il fixe des objectifs, choisit des moyens, coordonne les personnes, mesure les résultats et corrige les écarts.</p>
+<p>Les ressources principales sont humaines (compétences et temps), financières (argent et financement), matérielles (locaux, machines, stocks), informationnelles (données, procédures) et immatérielles (marque, réputation, savoir-faire).</p>
+<h3>1.2 Efficacité, efficience et pertinence</h3>
+<ul><li><strong>Efficacité :</strong> le résultat prévu est-il atteint ?</li><li><strong>Efficience :</strong> le résultat est-il obtenu en utilisant raisonnablement les ressources ?</li><li><strong>Pertinence :</strong> l'objectif choisi répond-il au vrai besoin ?</li></ul>
+<div class="case"><strong>Exemple :</strong> une boutique vise 500 ventes mensuelles et en réalise 520 : elle est efficace sur cet objectif. Mais si elle dépense deux fois plus en publicité que prévu, son efficience doit être examinée. Si elle vend un produit que les clients ne veulent plus acheter, la pertinence de l'offre est en cause.</div>
+<h3>1.3 Les fonctions classiques du management</h3>
+<p><strong>Planifier</strong> fixe les objectifs et les moyens; <strong>organiser</strong> répartit les tâches et les responsabilités; <strong>diriger</strong> motive, communique et arbitre; <strong>contrôler</strong> compare les résultats aux objectifs et déclenche des corrections. Ces fonctions sont liées et se répètent en boucle.</p>
+<h3>1.4 Objectifs SMART et indicateurs</h3>
+<p>Un objectif SMART est spécifique, mesurable, atteignable, pertinent et défini dans le temps. Un indicateur traduit l'objectif en mesure observable : taux de rupture, marge, délai de livraison, satisfaction client ou absentéisme. Un indicateur seul ne suffit pas : il faut une cible, une période, une source de données et une personne responsable.</p>
+<div class="case"><strong>Cas pratique :</strong> une petite boutique réalise 8 000 000 GNF de ventes par mois. Le propriétaire veut « vendre plus ». Reformulez cet objectif de façon SMART et proposez deux indicateurs complémentaires.</div>
+<button class="secondary" onclick="toggle('g1')">Afficher la correction expliquée</button><div class="answer" id="g1"><strong>Exemple de correction :</strong> « Augmenter le chiffre d'affaires mensuel de 8 000 000 à 9 200 000 GNF dans les trois prochains mois, sans diminuer la marge brute en pourcentage. » Indicateurs : chiffre d'affaires hebdomadaire; taux de marge brute. On peut aussi suivre le nombre de clients et le panier moyen. L'objectif est mesurable et daté; il faut vérifier qu'il reste réaliste au vu du stock, de la demande et des moyens disponibles.</div>
+<h3>1.5 Étude de cas — Diagnostiquer avant d'agir</h3>
+<div class="case">La société fictive Kaba Distribution vend des boissons. En un trimestre, les ventes progressent de 12 %, les réclamations doublent et les pertes de stock augmentent. Le gérant souhaite recruter immédiatement deux vendeurs. Analysez la décision : quelles données demander, quelles causes possibles examiner et quelles actions tester avant d'embaucher ?</div>
+<button class="secondary" onclick="toggle('g2')">Afficher une réponse structurée</button><div class="answer" id="g2"><strong>1. Données :</strong> ventes par produit et vendeur, réclamations par cause, inventaires, produits périmés ou cassés, délais de livraison, heures de pointe et charge de travail. <strong>2. Causes possibles :</strong> hausse de la demande, erreurs de préparation, mauvaise rotation des stocks, transport inadéquat, manque de formation ou effectif réellement insuffisant. <strong>3. Décision :</strong> mesurer le problème, corriger les causes simples, tester un planning ou une procédure d'inventaire, puis comparer coût et bénéfice d'un recrutement. Les ventes seules ne justifient pas automatiquement une embauche.</div>
+</section>
+
+<section>
+<div class="kicker">Module 1 • Niveau L1–L2</div><h2>Chapitre 2 — Coûts, marge et seuil de rentabilité</h2>
+<h3>2.1 Distinguer chiffre d'affaires, coûts et résultat</h3>
+<p>Le chiffre d'affaires est la valeur des ventes sur une période. Les charges représentent les ressources consommées pour l'activité. Le résultat est la différence entre produits et charges selon les règles comptables applicables. Attention : l'encaissement d'argent n'est pas toujours un produit de la période, et le paiement d'une dette n'est pas toujours une charge de la période.</p>
+<div class="formula">Marge sur coût variable = Chiffre d'affaires − Coûts variables</div>
+<div class="formula">Taux de marge sur coût variable = Marge sur coût variable ÷ Chiffre d'affaires × 100</div>
+<div class="formula">Seuil de rentabilité en valeur = Charges fixes ÷ Taux de marge sur coût variable</div>
+<p>Le seuil de rentabilité est le chiffre d'affaires auquel le résultat est nul dans le modèle étudié. Il suppose notamment que les charges fixes et le taux de marge restent stables dans la plage d'activité considérée.</p>
+<h3>2.2 Exemple intégral</h3>
+<table><tr><th>Donnée mensuelle</th><th>Montant</th></tr><tr><td>Chiffre d'affaires</td><td>20 000 000 GNF</td></tr><tr><td>Coûts variables</td><td>12 000 000 GNF</td></tr><tr><td>Charges fixes</td><td>5 000 000 GNF</td></tr></table>
+<p>Marge sur coûts variables = 20 000 000 − 12 000 000 = 8 000 000 GNF. Taux = 8 000 000 ÷ 20 000 000 = 40 %. Résultat simplifié = 8 000 000 − 5 000 000 = 3 000 000 GNF. Seuil de rentabilité = 5 000 000 ÷ 0,40 = 12 500 000 GNF.</p>
+<div class="case"><strong>Exercice universitaire :</strong> une entreprise vend un article 150 000 GNF. Son coût variable unitaire est de 90 000 GNF. Les charges fixes mensuelles sont de 6 000 000 GNF. Calculez la marge unitaire, le nombre d'unités au seuil de rentabilité et le résultat si 140 unités sont vendues.</div>
+<button class="secondary" onclick="toggle('g3')">Afficher la correction détaillée</button><div class="answer" id="g3">Marge unitaire = 150 000 − 90 000 = 60 000 GNF. Seuil en unités = 6 000 000 ÷ 60 000 = 100 unités. Pour 140 unités : chiffre d'affaires = 21 000 000 GNF; coûts variables = 12 600 000 GNF; marge sur coûts variables = 8 400 000 GNF; résultat simplifié = 8 400 000 − 6 000 000 = 2 400 000 GNF. Ce calcul suppose que les coûts unitaires et les charges fixes ne changent pas avec le volume.</div>
+</section>
+
+<section>
+<div class="kicker">Module 1 • Niveau L2–L3</div><h2>Chapitre 3 — Budget, écarts et décision</h2>
+<p>Un budget traduit un plan en quantités et en montants pour une période. Le contrôle budgétaire compare le réel au prévu, calcule l'écart, recherche les causes et propose une action. Un écart défavorable n'est pas automatiquement une mauvaise performance : une dépense supérieure peut être justifiée par une hausse d'activité; il faut comparer des bases homogènes.</p>
+<div class="formula">Écart simple = Réalisé − Budget</div>
+<div class="case">Budget de communication : 2 000 000 GNF. Dépense réelle : 2 350 000 GNF. Les ventes ont progressé de 15 %, mais le coût d'acquisition d'un client a augmenté de 20 %. Présentez un diagnostic et trois questions à poser avant de couper le budget.</div>
+<button class="secondary" onclick="toggle('g4')">Afficher les pistes de correction</button><div class="answer" id="g4">Écart de dépense = +350 000 GNF, donc dépassement budgétaire. Il faut demander : combien de nouveaux clients ont été acquis ? Quelle marge ont-ils générée ? Quels canaux publicitaires ont produit les ventes ? Le coût d'acquisition augmente-t-il parce que les campagnes sont moins efficaces ou parce que l'entreprise cible un nouveau segment ? Décision : analyser le rendement par canal et la valeur des clients avant de supprimer la dépense.</div>
+</section>
+
+<section id="compta">
+<div class="kicker">Module 2 • Comptabilité OHADA / SYSCOHADA</div><h2>Chapitre 4 — Logique comptable, partie double et pièces justificatives</h2>
+<p>La comptabilité générale enregistre les opérations d'une entité selon un référentiel et une période. Elle fournit une information structurée sur le patrimoine, la situation financière et la performance. Le SYSCOHADA est le système comptable OHADA; il faut utiliser le plan de comptes et les règles correspondant à l'entité et à la version applicable.</p>
+<h3>4.1 Le principe de la partie double</h3>
+<p>Chaque opération est analysée au minimum selon les comptes concernés, le sens de variation et le montant. Le total des débits doit être égal au total des crédits pour chaque écriture. Débit ne signifie pas toujours « argent qui sort » et crédit ne signifie pas toujours « argent qui entre » : leur effet dépend de la nature du compte.</p>
+<table><tr><th>Type de compte (repère général)</th><th>Augmentation habituelle</th><th>Diminution habituelle</th></tr><tr><td>Actif</td><td>Débit</td><td>Crédit</td></tr><tr><td>Charges</td><td>Débit</td><td>Crédit</td></tr><tr><td>Passif et capitaux propres</td><td>Crédit</td><td>Débit</td></tr><tr><td>Produits</td><td>Crédit</td><td>Débit</td></tr></table>
+<p>Ce tableau est un repère de compréhension; les comptes de régularisation, correcteurs et cas particuliers exigent une analyse du plan comptable.</p>
+<h3>4.2 Méthode d'analyse d'une pièce</h3>
+<ol><li>Vérifier la pièce : date, parties, objet, montant et validation.</li><li>Déterminer la nature économique de l'opération.</li><li>Identifier les comptes selon le plan applicable.</li><li>Déterminer quel compte est débité et quel compte est crédité.</li><li>Vérifier l'égalité débit/crédit et conserver la pièce justificative.</li></ol>
+<h3>4.3 Exemple : apport initial en banque</h3>
+<div class="case">Le propriétaire apporte 5 000 000 GNF de capital sur le compte bancaire de l'entreprise. En simplifiant et sous réserve de la forme juridique et du plan de comptes applicable, la banque (actif) augmente et le capital (capitaux propres) augmente.</div>
+<table><tr><th>Compte à identifier dans le plan applicable</th><th>Débit</th><th>Crédit</th></tr><tr><td>Banque (actif)</td><td>5 000 000</td><td>—</td></tr><tr><td>Capital (capitaux propres)</td><td>—</td><td>5 000 000</td></tr><tr><th>Total</th><th>5 000 000</th><th>5 000 000</th></tr></table>
+<p>Le nom exact et le numéro de compte doivent être vérifiés dans le plan de comptes SYSCOHADA applicable. L'égalité de l'écriture est respectée.</p>
+<h3>4.4 Exemple : achat de marchandises à crédit</h3>
+<p>Une entreprise reçoit une facture fournisseur de marchandises de 1 200 000 GNF, à crédit. Dans un exemple simplifié sans TVA ni frais accessoires, la charge ou le compte de stock concerné augmente au débit selon la méthode de suivi des stocks; la dette fournisseur augmente au crédit. L'écriture précise dépend du traitement comptable des stocks et du plan utilisé.</p>
+<table><tr><th>Compte à déterminer</th><th>Débit</th><th>Crédit</th></tr><tr><td>Achats ou compte de stock approprié</td><td>1 200 000</td><td>—</td></tr><tr><td>Fournisseur</td><td>—</td><td>1 200 000</td></tr></table>
+<h3>4.5 Exercices de journal</h3>
+<div class="case"><strong>Exercice A :</strong> l'entreprise règle par banque une dette fournisseur de 750 000 GNF. Indiquez les comptes qui diminuent et préparez l'écriture.</div>
+<button class="secondary" onclick="toggle('c1')">Voir la correction A</button><div class="answer" id="c1">La dette fournisseur diminue : on débite le compte fournisseur. La banque (actif) diminue : on crédite le compte banque. Montant au débit = montant au crédit = 750 000 GNF. Les numéros exacts doivent être pris dans le plan applicable.</div>
+<div class="case"><strong>Exercice B :</strong> une entreprise vend des marchandises au comptant pour 2 000 000 GNF, hors TVA pour simplifier. Établissez l'écriture de vente et expliquez pourquoi l'encaissement n'est pas lui-même le chiffre d'affaires.</div>
+<button class="secondary" onclick="toggle('c2')">Voir la correction B</button><div class="answer" id="c2">Dans un schéma simplifié : débit du compte de trésorerie concerné pour 2 000 000 GNF; crédit du compte de ventes pour 2 000 000 GNF. L'encaissement est le règlement; le produit correspond à la vente reconnue selon les règles applicables. Si la vente et l'encaissement ont lieu simultanément, ils apparaissent dans la même écriture composée. Le coût des marchandises vendues et le mouvement de stock doivent aussi être traités selon le système de suivi des stocks.</div>
+<h3>4.6 Bilan et compte de résultat : ne pas les confondre</h3>
+<p>Le bilan décrit les actifs, les passifs et les capitaux propres à une date donnée. Le compte de résultat regroupe les produits et les charges d'une période. Acheter un équipement payé immédiatement transforme généralement de la trésorerie en immobilisation; ce n'est pas nécessairement une charge intégrale immédiate. La consommation de l'actif peut être répartie dans le temps par amortissement lorsque les conditions comptables sont remplies.</p>
+<div class="case"><strong>Exercice :</strong> une entreprise achète un ordinateur pour 3 600 000 GNF, payé par banque. Expliquez pourquoi il serait généralement incorrect de conclure automatiquement que le résultat baisse de 3 600 000 GNF le jour de l'achat.</div>
+<button class="secondary" onclick="toggle('c3')">Voir la correction</button><div class="answer" id="c3">L'achat d'un bien destiné à servir durablement peut être comptabilisé comme immobilisation si les critères sont remplis. La trésorerie diminue et l'immobilisation augmente; le paiement n'est pas à lui seul une charge de 3 600 000 GNF. La consommation de l'avantage économique est ensuite reconnue au fil du temps, notamment par amortissement, selon la durée d'utilité, la valeur amortissable et les règles applicables. Les seuils, exceptions et traitements fiscaux doivent être vérifiés.</div>
+</section>
+
+<section>
+<div class="kicker">Module 2 • Niveau L2–L3</div><h2>Chapitre 5 — Rapprochement bancaire et contrôle interne</h2>
+<p>Le rapprochement bancaire explique les différences entre le solde du compte Banque dans la comptabilité et le solde du relevé bancaire à une même date. Les écarts peuvent venir de chèques émis non encore débités, de versements en transit, de frais bancaires non enregistrés, d'erreurs ou d'opérations inconnues.</p>
+<p>Le rapprochement n'est pas un moyen de forcer les deux soldes à être identiques : chaque différence doit être justifiée. Les frais ou intérêts apparaissant sur le relevé mais absents de la comptabilité peuvent nécessiter une écriture après vérification.</p>
+<div class="case">Au 30 juin, le relevé bancaire affiche 4 850 000 GNF et le compte Banque en comptabilité affiche 5 200 000 GNF. Un chèque de 600 000 GNF émis par l'entreprise n'est pas encore présenté. Des frais bancaires de 50 000 GNF apparaissent sur le relevé mais ne sont pas comptabilisés. Analysez ces éléments.</div>
+<button class="secondary" onclick="toggle('c4')">Voir la correction expliquée</button><div class="answer" id="c4">Le chèque non présenté explique une différence temporelle : le solde du relevé n'a pas encore été diminué, alors que la comptabilité a normalement déjà enregistré le paiement. Les frais de 50 000 GNF sont sur le relevé mais pas dans les livres : après vérification, il faut enregistrer les frais au débit du compte de charges approprié et créditer Banque. Après cette écriture, le solde comptable passe de 5 200 000 à 5 150 000 GNF. Pour établir le rapprochement complet, il faut vérifier le sens et la date de toutes les opérations et rechercher les autres écarts : les seules données fournies ne suffisent pas à expliquer exactement la différence finale.</div>
+</section>
+
+<section id="entrepreneuriat">
+<div class="kicker">Module 3 • Entrepreneuriat</div><h2>Chapitre 6 — De l'idée à un modèle économique testable</h2>
+<h3>6.1 Idée, problème, client et proposition de valeur</h3>
+<p>Une idée n'est pas encore une opportunité validée. Il faut identifier un groupe de clients, le problème qu'ils rencontrent, les solutions actuelles et la raison pour laquelle ils choisiraient la nouvelle offre. La proposition de valeur explique le bénéfice concret promis, sans exagération.</p>
+<p>Avant de construire un produit coûteux, interrogez des clients potentiels, observez leurs comportements et testez une version simple. Les compliments ne prouvent pas la demande; un engagement concret, comme une commande ou un acompte selon les conditions convenues, fournit un signal plus fort.</p>
+<h3>6.2 Étude de marché de terrain</h3>
+<ol><li>Définir le segment : qui achète, où, à quelle fréquence et pour quel usage ?</li><li>Interroger plusieurs clients potentiels sans leur imposer la réponse.</li><li>Observer les concurrents : prix, qualité, délais, disponibilité et confiance.</li><li>Estimer le volume réaliste à partir de données, pas seulement de l'enthousiasme.</li><li>Tester une offre limitée, mesurer les résultats et décider de continuer, modifier ou arrêter.</li></ol>
+<h3>6.3 Exemple de calcul de prix</h3>
+<p>Supposons un produit vendu 100 000 GNF. Le coût d'achat est 65 000 GNF et les autres coûts variables par vente sont 5 000 GNF. La marge sur coûts variables par unité est 100 000 − 65 000 − 5 000 = 30 000 GNF. Si les charges fixes mensuelles sont de 900 000 GNF, le seuil de rentabilité est 900 000 ÷ 30 000 = 30 ventes par mois.</p>
+<div class="case"><strong>Exercice :</strong> vous envisagez de vendre des accessoires de téléphone. Prix envisagé : 80 000 GNF; coût d'achat et d'approvisionnement par unité : 52 000 GNF; autres coûts variables : 8 000 GNF; charges fixes mensuelles : 600 000 GNF. Calculez la marge unitaire et le seuil de rentabilité en unités. Citez deux risques à tester avant d'acheter du stock.</div>
+<button class="secondary" onclick="toggle('e1')">Voir la correction</button><div class="answer" id="e1">Marge unitaire = 80 000 − 52 000 − 8 000 = 20 000 GNF. Seuil = 600 000 ÷ 20 000 = 30 unités par mois. Risques possibles : demande surestimée, qualité médiocre, fournisseurs peu fiables, variations de prix, produits incompatibles avec les téléphones des clients ou concurrence. Pour réduire le risque, tester les préférences, demander des devis, commencer avec des précommandes transparentes ou un stock très limité.</div>
+<h3>6.4 Business model et plan d'affaires</h3>
+<p>Le modèle économique décrit comment l'entreprise crée de la valeur, la délivre et capture une partie de cette valeur sous forme de revenus. Il précise les segments de clients, la proposition de valeur, les canaux, les relations clients, les revenus, les ressources, les activités, les partenaires et les coûts.</p>
+<p>Le business plan ajoute une analyse structurée du marché, de l'organisation, des opérations, du financement, des hypothèses et des risques. Un bon plan n'est pas une promesse de succès : c'est un ensemble d'hypothèses que l'on doit tester et réviser.</p>
+<h3>6.5 Cas de synthèse — EduFacile Business</h3>
+<div class="case">Une plateforme éducative propose des cours de gestion et de comptabilité. Les étudiants souhaitent des exercices corrigés, mais beaucoup ont un budget limité et une connexion Internet irrégulière. Concevez une proposition de valeur, une version minimale à tester, deux sources de revenus possibles et trois indicateurs de réussite.</div>
+<button class="secondary" onclick="toggle('e2')">Voir une proposition de correction</button><div class="answer" id="e2"><strong>Proposition de valeur :</strong> des cours progressifs en français, des cas chiffrés en GNF, des exercices corrigés et des fiches légères à consulter sur téléphone. <strong>Version minimale :</strong> quelques chapitres de qualité, quiz et fiches téléchargeables; tester l'accessibilité et l'usage hors ligne avant de le promettre. <strong>Revenus possibles :</strong> pack premium d'exercices et de fiches; ateliers ou accompagnement pédagogique clairement définis. Les revenus publicitaires peuvent être envisagés plus tard, si l'audience le justifie. <strong>Indicateurs :</strong> nombre d'apprenants actifs, taux de fin de chapitre, proportion qui revient la semaine suivante, retours qualitatifs et taux de conversion payante. Il faut valider la volonté de payer avant de fixer un prix définitif.</div>
+</section>
+
+<section>
+<div class="kicker">Évaluation • niveau licence</div><h2>Test de compréhension</h2>
+<p class="small">Choisissez une réponse par question, puis appuyez sur « Corriger le test ». Les réponses sont corrigées directement sur cette page.</p>
+<form id="quiz">
+<div class="quizq"><strong>1. Une entreprise atteint son objectif mais utilise beaucoup plus de ressources que prévu. Quelle notion doit-elle analyser en priorité ?</strong>
+<label><input type="radio" name="q1" value="a"> La pertinence uniquement</label><label><input type="radio" name="q1" value="b"> L'efficience</label><label><input type="radio" name="q1" value="c"> Le capital social</label></div>
+<div class="quizq"><strong>2. Le prix de vente est de 120 000 GNF, le coût variable unitaire de 75 000 GNF. Quelle est la marge sur coût variable unitaire ?</strong>
+<label><input type="radio" name="q2" value="a"> 45 000 GNF</label><label><input type="radio" name="q2" value="b"> 75 000 GNF</label><label><input type="radio" name="q2" value="c"> 195 000 GNF</label></div>
+<div class="quizq"><strong>3. Dans une écriture équilibrée, le total des débits doit-il être égal au total des crédits ?</strong>
+<label><input type="radio" name="q3" value="a"> Non, jamais</label><label><input type="radio" name="q3" value="b"> Oui</label><label><input type="radio" name="q3" value="c"> Seulement si l'entreprise réalise un bénéfice</label></div>
+<div class="quizq"><strong>4. Quel document présente généralement la situation patrimoniale à une date donnée ?</strong>
+<label><input type="radio" name="q4" value="a"> Le budget commercial</label><label><input type="radio" name="q4" value="b"> Le bilan</label><label><input type="radio" name="q4" value="c"> Le plan marketing</label></div>
+<div class="quizq"><strong>5. Quelle preuve fournit généralement un signal plus fort de demande réelle ?</strong>
+<label><input type="radio" name="q5" value="a"> Des amis qui disent que l'idée est excellente</label><label><input type="radio" name="q5" value="b"> Un grand nombre de vues sans autre mesure</label><label><input type="radio" name="q5" value="c"> Des clients qui passent une commande selon des conditions claires</label></div>
+<button type="button" onclick="gradeQuiz()">Corriger le test</button><button type="reset" class="secondary" onclick="document.getElementById('score').textContent=''">Recommencer</button>
+<div id="score" class="result" aria-live="polite"></div>
+</form>
+</section>
+
+<section id="glossaire">
+<div class="kicker">Outil de révision</div><h2>Glossaire essentiel</h2>
+<table><tr><th>Terme</th><th>Définition courte</th></tr>
+<tr><td>Actif</td><td>Ressource contrôlée par l'entité, issue d'événements passés, selon les critères du référentiel applicable.</td></tr>
+<tr><td>Passif</td><td>Obligations et éléments de financement présentés au passif selon les règles comptables.</td></tr>
+<tr><td>Chiffre d'affaires</td><td>Montant des ventes de biens et services de l'activité sur une période, selon les règles de reconnaissance applicables.</td></tr>
+<tr><td>Charge fixe</td><td>Charge qui ne varie pas directement avec le volume dans une plage d'activité et une période données.</td></tr>
+<tr><td>Coût variable</td><td>Coût qui varie avec le niveau d'activité selon la relation retenue dans le modèle.</td></tr>
+<tr><td>Contrôle interne</td><td>Ensemble de procédures visant notamment la fiabilité de l'information, la protection des actifs et la maîtrise des risques.</td></tr>
+<tr><td>Trésorerie</td><td>Disponibilités et éléments assimilés selon les règles de présentation applicables.</td></tr>
+<tr><td>Proposition de valeur</td><td>Raison claire pour laquelle un segment de clients pourrait choisir une offre plutôt qu'une alternative.</td></tr>
+<tr><td>Seuil de rentabilité</td><td>Niveau d'activité auquel le résultat calculé selon les hypothèses retenues est nul.</td></tr></table>
+</section>
+<section><h2>Pour progresser au niveau avancé</h2>
+<p>Après avoir maîtrisé ces chapitres, approfondissez : analyse financière (fonds de roulement, besoin en fonds de roulement, trésorerie nette et ratios), budgets flexibles, calcul des coûts complets et coûts pertinents, gestion des stocks, fiscalité applicable, droit des sociétés OHADA, stratégie, ressources humaines, marketing, gouvernance et rédaction d'un mémoire avec une méthodologie rigoureuse.</p>
+<p class="small">Ce fichier est une première base de cours enrichie, et non un cursus universitaire complet. Les programmes officiels et les règles comptables/fiscales locales doivent être vérifiés auprès de votre établissement et des textes en vigueur.</p></section>
+</main>
+<footer><strong>EduFacile Business</strong><br>Apprendre les méthodes. Comprendre les chiffres. Prendre de meilleures décisions.</footer>
+<script>
+function toggle(id){const el=document.getElementById(id);el.classList.toggle('show')}
+function gradeQuiz(){const key={q1:'b',q2:'a',q3:'b',q4:'b',q5:'c'};let score=0;for(const q in key){const chosen=document.querySelector('input[name="'+q+'"]:checked');if(chosen&&chosen.value===key[q])score++}const msg=['À reprendre : relisez les chapitres puis refaites le test.','Début de maîtrise : revoyez les questions manquées.','Bon travail : continuez avec les exercices écrits.','Très bon résultat : expliquez maintenant chaque réponse avec vos propres mots.'][score===0?0:score<=2?1:score===3?2:3];document.getElementById('score').textContent='Résultat : '+score+'/5. '+msg}
+</script>
+</body>
+</html> import Path
 
 html = r'''<!DOCTYPE html>
 <html lang="fr">
